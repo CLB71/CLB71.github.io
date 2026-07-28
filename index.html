@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cristian Labella Consulting — Aerospace &amp; Defense Operations</title>
+<meta name="description" content="Independent aerospace and defense operations consulting. ISO/AS9100/NADCAP compliance, UAS certification roadmaps, and quality systems for manufacturers across East Asia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F131A;
+    --panel:#151B24;
+    --line:#2A3444;
+    --line-soft:#212A38;
+    --paper:#E9EAE4;
+    --muted:#8B95A3;
+    --accent:#C9812E;
+    --teal:#4C8577;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink); color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+  .grid-bg{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:linear-gradient(var(--line-soft) 1px, transparent 1px), linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size:64px 64px; opacity:0.35;
+    mask-image:radial-gradient(ellipse 90% 60% at 50% 0%, #000 40%, transparent 90%);
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:1040px; margin:0 auto; padding:0 24px; position:relative; z-index:1;}
+  .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent);}
+
+  header.nav{ position:sticky; top:0; z-index:50; background:rgba(15,19,26,0.86); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+  .nav-inner{ max-width:1040px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between;}
+  .nav-name{ font-family:'Archivo',sans-serif; font-weight:800; font-size:15px;}
+  .nav-name span{ color:var(--accent); }
+  nav.links{ display:flex; gap:28px; }
+  nav.links a{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s ease;}
+  nav.links a:hover, nav.links a:focus-visible{ color:var(--paper); }
+
+  .title-block{
+    border:1px solid var(--line); background:var(--panel);
+    font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--muted);
+    display:inline-grid; grid-template-columns:repeat(4, auto);
+  }
+  .title-block .cell{ padding:7px 12px; border-right:1px solid var(--line);}
+  .title-block .cell:last-child{ border-right:none; }
+  .title-block .cell b{ display:block; color:var(--paper); font-weight:600;}
+  .title-block .cell .k{ color:var(--accent); letter-spacing:0.14em; font-size:9px;}
+
+  /* HERO */
+  .hero{ padding:110px 0 80px; }
+  .hero .tb-row{ margin-bottom:40px; display:flex; justify-content:flex-end; }
+  .hero h1{
+    font-family:'Archivo', sans-serif; font-weight:900;
+    font-size:clamp(32px, 6vw, 58px); line-height:1.05; letter-spacing:-0.01em; max-width:820px;
+  }
+  .hero h1 em{ font-style:normal; color:var(--accent); }
+  .lede{ margin-top:24px; max-width:600px; font-size:16.5px; color:#C7CCD4; }
+  .hero-actions{ margin-top:36px; display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
+    padding:13px 22px; border:1px solid var(--accent); color:var(--ink); background:var(--accent);
+    text-decoration:none; transition:transform .15s ease; display:inline-block;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn.ghost{ background:transparent; color:var(--paper); border-color:var(--line); }
+  .btn.ghost:hover{ border-color:var(--accent); color:var(--accent); }
+
+  .cred-strip{ margin-top:56px; padding-top:26px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:12px; }
+  .cred{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.05em; padding:8px 14px; border:1px solid var(--line); color:var(--muted); white-space:nowrap; }
+
+  section{ padding:84px 0; border-top:1px solid var(--line); }
+  .sec-head{ margin-bottom:44px; max-width:640px; }
+  .sec-title{ font-family:'Archivo', sans-serif; font-weight:800; font-size:clamp(24px,3.6vw,34px); letter-spacing:-0.01em;}
+  .sec-title .num{ color:var(--accent); margin-right:10px; font-family:'IBM Plex Mono',monospace; font-size:0.5em; vertical-align:middle;}
+  .sec-sub{ margin-top:14px; color:var(--muted); font-size:14.5px; }
+
+  /* FOCUS AREAS (services, lead) */
+  .svc-list{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line);}
+  @media (max-width:760px){ .svc-list{ grid-template-columns:1fr; } }
+  .svc{ background:var(--panel); padding:30px 26px; }
+  .svc .tag{ font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--teal); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:12px;}
+  .svc h3{ font-family:'Archivo',sans-serif; font-weight:700; font-size:19px; margin-bottom:10px;}
+  .svc p{ color:#C7CCD4; font-size:14.5px; }
+
+  /* APPROACH */
+  .approach-list{ display:flex; flex-direction:column; }
+  .ap-row{ display:grid; grid-template-columns:60px 1fr; gap:22px; padding:26px 0; border-bottom:1px solid var(--line);}
+  .ap-row:first-child{ padding-top:0; }
+  .ap-row:last-child{ border-bottom:none; padding-bottom:0; }
+  .ap-mark{ font-family:'IBM Plex Mono',monospace; color:var(--accent); font-size:13px; padding-top:3px;}
+  .ap-row h3{ font-family:'Archivo',sans-serif; font-weight:700; font-size:18px; margin-bottom:8px;}
+  .ap-row p{ color:#C7CCD4; font-size:14.5px; max-width:600px; }
+
+  /* PROOF / achievements */
+  .ach-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  @media (max-width:860px){ .ach-grid{ grid-template-columns:repeat(2,1fr); } }
+  .ach{ background:var(--panel); padding:28px 22px; }
+  .ach .big{ font-family:'Archivo',sans-serif; font-weight:900; font-size:26px; color:var(--accent); line-height:1.1;}
+  .ach .lab{ margin-top:10px; font-size:12px; color:var(--muted); line-height:1.5; }
+
+  .field-strip{ margin-top:40px; display:flex; flex-wrap:wrap; gap:10px; }
+  .field-strip span{ font-family:'IBM Plex Mono',monospace; font-size:11px; padding:8px 14px; border:1px solid var(--line); color:var(--muted); }
+
+  /* SELECTED PROGRAMS */
+  .prog-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line);}
+  @media (max-width:760px){ .prog-grid{ grid-template-columns:1fr; } }
+  .prog-card{ background:var(--panel); }
+  .prog-photo{ position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--ink); }
+  .prog-photo img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter:grayscale(0.55) contrast(1.08) brightness(0.85) sepia(0.12);
+    transition:transform .5s ease;
+  }
+  .prog-card:hover .prog-photo img{ transform:scale(1.04); }
+  .prog-photo::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(165deg, var(--ink) 0%, transparent 55%), linear-gradient(0deg, rgba(201,129,46,0.18), transparent 60%);
+    mix-blend-mode:multiply;
+  }
+  .prog-body{ padding:24px 26px 28px; }
+  .prog-tag{ font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--teal); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:10px;}
+  .prog-body h3{ font-family:'Archivo',sans-serif; font-weight:700; font-size:19px; margin-bottom:10px;}
+  .prog-body p{ color:#C7CCD4; font-size:14px; }
+
+  /* CONTACT / CTA */
+  .cta-panel{
+    border:1px solid var(--line); background:var(--panel); padding:56px;
+    display:grid; grid-template-columns:1.2fr 1fr; gap:40px; align-items:center;
+  }
+  @media (max-width:760px){ .cta-panel{ grid-template-columns:1fr; padding:36px 26px; } }
+  .cta-panel h2{ font-family:'Archivo',sans-serif; font-weight:800; font-size:clamp(22px,3vw,30px); margin-bottom:16px;}
+  .cta-panel p{ color:#C7CCD4; font-size:15px; }
+  .contact-list a{ text-decoration:none; }
+  .contact-row{ display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-bottom:1px solid var(--line);}
+  .contact-row:last-child{ border-bottom:none; }
+  .contact-row .k{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted);}
+  .contact-row .v{ font-size:14.5px; }
+  .contact-row a.v:hover{ color:var(--accent); }
+
+  footer{ border-top:1px solid var(--line); padding:30px 0; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-name">CRISTIAN <span>LABELLA</span></div>
+    <nav class="links">
+      <a href="#focus">Focus Areas</a>
+      <a href="#approach">Approach</a>
+      <a href="#proof">Track Record</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" style="border-top:none;">
+    <div class="tb-row">
+      <div class="title-block">
+        <div class="cell"><span class="k">PRACTICE</span><b>AEROSPACE&nbsp;CONSULTING</b></div>
+        <div class="cell"><span class="k">REGION</span><b>EAST&nbsp;ASIA</b></div>
+        <div class="cell"><span class="k">EST.</span><b>2025</b></div>
+        <div class="cell"><span class="k">STATUS</span><b style="color:var(--teal)">AVAILABLE</b></div>
+      </div>
+    </div>
+
+    <div class="eyebrow" style="margin-bottom:18px;">Aerospace &amp; Defense Operations Consulting</div>
+    <h1>Quality systems and operational discipline for manufacturers who can't afford <em>a failed audit</em>.</h1>
+    <p class="lede">I help aerospace, defense and advanced manufacturing suppliers get — and stay — certified. AS9100, ISO 9001/14001/45001 and NADCAP compliance, UAS certification roadmaps, and the operational systems that keep audits clean and programs on budget.</p>
+
+    <div class="hero-actions">
+      <a class="btn" href="#contact">Start a conversation</a>
+      <a class="btn ghost" href="#focus">See what I do</a>
+    </div>
+
+    <div class="cred-strip">
+      <div class="cred">ISO 9001 / 14001 / 45001 AUDITOR</div>
+      <div class="cred">SIX SIGMA GREEN BELT</div>
+      <div class="cred">ASME MEMBER</div>
+      <div class="cred">SOLIDWORKS — TOP 30%</div>
+      <div class="cred">US PATENT HOLDER</div>
+    </div>
+  </section>
+
+  <!-- FOCUS AREAS -->
+  <section id="focus" class="reveal">
+    <div class="sec-head">
+      <div class="sec-title"><span class="num">01</span>Focus Areas</div>
+      <p class="sec-sub">Four areas where clients bring me in — usually when the stakes are an audit, a certification deadline, or a program that's slipping.</p>
+    </div>
+    <div class="svc-list">
+      <div class="svc">
+        <div class="tag">Quality Systems</div>
+        <h3>ISO / AS9100 / NADCAP Compliance</h3>
+        <p>Audit readiness and quality management system design for suppliers who need to pass — and keep passing — certification audits without disrupting production.</p>
+      </div>
+      <div class="svc">
+        <div class="tag">Regulatory</div>
+        <h3>UAS / Drone Certification Roadmaps</h3>
+        <p>Certification strategy and regulatory pathway planning for drone programs, structured around weight class, airspace, and jurisdiction.</p>
+      </div>
+      <div class="svc">
+        <div class="tag">Operations</div>
+        <h3>Program &amp; Operations Leadership</h3>
+        <p>Hands-on operational management for manufacturing and engineering programs — budget, schedule, and cross-functional execution.</p>
+      </div>
+      <div class="svc">
+        <div class="tag">Technology</div>
+        <h3>AI Enablement for AS9100 Suppliers</h3>
+        <p>Scoping practical, low-risk AI use cases for certified aerospace and defense quality organizations — where it actually saves audit hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach" class="reveal">
+    <div class="sec-head">
+      <div class="sec-title"><span class="num">02</span>How I Work</div>
+      <p class="sec-sub">A practical sequence, not a framework for its own sake.</p>
+    </div>
+    <div class="approach-list">
+      <div class="ap-row">
+        <div class="ap-mark">A.</div>
+        <div>
+          <h3>Assess against the standard</h3>
+          <p>Walk the current process against the actual clauses of the standard you're certifying to — not a generic checklist. Gaps get ranked by audit risk, not by convenience.</p>
+        </div>
+      </div>
+      <div class="ap-row">
+        <div class="ap-mark">B.</div>
+        <div>
+          <h3>Fix what the auditor will actually flag</h3>
+          <p>Prioritize the corrective actions that close real non-conformity risk first, so effort goes where it protects the certification.</p>
+        </div>
+      </div>
+      <div class="ap-row">
+        <div class="ap-mark">C.</div>
+        <div>
+          <h3>Build systems your team can run without me</h3>
+          <p>Documentation and processes are designed to be owned internally after the engagement ends — not dependent on outside consulting to maintain.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section id="proof" class="reveal">
+    <div class="sec-head">
+      <div class="sec-title"><span class="num">03</span>Track Record</div>
+      <p class="sec-sub">20+ years across Italian precision manufacturing, Gulf-region drone and defense ventures, and independent consulting.</p>
+    </div>
+    <div class="ach-grid">
+      <div class="ach">
+        <div class="big">$300K+</div>
+        <div class="lab">Annual cost savings delivered</div>
+      </div>
+      <div class="ach">
+        <div class="big">$3M+</div>
+        <div class="lab">Program budget managed</div>
+      </div>
+      <div class="ach">
+        <div class="big">20+ Yrs</div>
+        <div class="lab">Across aerospace, defense &amp; advanced manufacturing</div>
+      </div>
+      <div class="ach">
+        <div class="big">Patent Holder</div>
+        <div class="lab">US-granted patent — details available on request</div>
+      </div>
+    </div>
+    <div class="field-strip">
+      <span>S.G. Aviation</span>
+      <span>SICAMB S.p.A. — Italy</span>
+      <span>Falcon Drones — Dubai</span>
+      <span>AASIA Special Industries — Saudi Arabia</span>
+    </div>
+  </section>
+
+  <!-- SELECTED PROGRAMS -->
+  <section id="programs" class="reveal">
+    <div class="sec-head">
+      <div class="sec-title"><span class="num">04</span>Selected Programs</div>
+      <p class="sec-sub">A sample of the aircraft and UAV programs behind the numbers above.</p>
+    </div>
+    <div class="prog-grid">
+      <div class="prog-card">
+        <div class="prog-photo"><img src="images/droxy.jpg" alt="DROXY electric autonomous drone on display"></div>
+        <div class="prog-body">
+          <div class="prog-tag">Urban Mobility — UAE</div>
+          <h3>Project DROXY</h3>
+          <p>Led the mechanical architecture and structural development of an electric autonomous VTOL drone, integrating high-torque propulsion with autonomous navigation sensors. Presented at GITEX Technology Week, Dubai.</p>
+        </div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-photo"><img src="images/f150.jpg" alt="F150 heavy-lift UAV airframe"></div>
+        <div class="prog-body">
+          <div class="prog-tag">Heavy-Lift UAV — 250kg Payload</div>
+          <h3>Autonomous Heavy-Lift UAV (F150)</h3>
+          <p>Airframe redesign in 7075-T6 aluminum and composites for a GPS-denied autonomous platform. Result: +40% structural strength, +25% payload capacity, 99.2% navigation accuracy.</p>
+        </div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-photo"><img src="images/storm300.jpg" alt="STORM 300 ultralight aircraft"></div>
+        <div class="prog-body">
+          <div class="prog-tag">Mass-Production Aircraft</div>
+          <h3>ULM Storm 300</h3>
+          <p>Design lead for structural evolution and mass-production readiness of an ultralight aircraft — 15% weight reduction, improved safety margins, and a 30% increase in manufacturing output.</p>
+        </div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-photo"><img src="images/rally105.jpg" alt="RALLY 105 UL ultralight aircraft"></div>
+        <div class="prog-body">
+          <div class="prog-tag">Composite / Metallic Integration</div>
+          <h3>ULM Rally 105 UL</h3>
+          <p>Managed the engineering interface between a composite fuselage and aluminum-alloy wings, achieving a 15% weight reduction while meeting LTF-UL and EASA-aligned airworthiness standards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="reveal">
+    <div class="sec-head">
+      <div class="sec-title"><span class="num">05</span>Start a Conversation</div>
+    </div>
+    <div class="cta-panel">
+      <div>
+        <h2>Working on a certification, audit, or program that needs to get back on track?</h2>
+        <p>I take on a limited number of engagements at a time — reach out and I'll let you know if I'm the right fit.</p>
+      </div>
+      <div class="contact-list">
+        <div class="contact-row">
+          <div class="k">Email</div>
+          <a class="v" href="mailto:cristian.labella@icloud.com">cristian.labella@icloud.com</a>
+        </div>
+        <div class="contact-row">
+          <div class="k">Phone</div>
+          <a class="v" href="tel:+639524453879">+63 952 445 3879</a>
+        </div>
+        <div class="contact-row">
+          <div class="k">LinkedIn</div>
+          <a class="v" href="https://www.linkedin.com/in/crislb" target="_blank" rel="noopener">linkedin.com/in/crislb</a>
+        </div>
+        <div class="contact-row">
+          <div class="k">Network</div>
+          <div class="v">PH · UAE · KSA · US</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div>© 2026 Cristian Labella. All rights reserved.</div>
+  <div>Built &amp; maintained on GitHub Pages</div>
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  items.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
