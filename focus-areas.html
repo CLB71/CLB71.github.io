@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Focus Areas — Cristian La Bella Consulting</title>
+<meta name="description" content="Engineering & Product Development, Manufacturing & Industrialization, Operations & Production Leadership, Quality & Certification.">
+<meta name="author" content="Cristian La Bella">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-name" href="index.html">CRISTIAN <span>LA BELLA</span></a>
+    <nav class="links">
+      <a href="focus-areas.html" class="active">Focus Areas</a>
+      <a href="how-i-help.html">How I Help</a>
+      <a href="track-record.html">Track Record</a>
+      <a href="programs.html">Programs</a>
+      <a href="engagement-models.html">Engagement</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero sub-hero" style="border-top:none;">
+    <div class="eyebrow" style="margin-bottom:14px;">01 — Focus Areas</div>
+    <h1>Four areas that make up the full picture.</h1>
+    <p class="lede">From product engineering through to certified, running production.</p>
+  </section>
+
+  <section class="reveal" style="padding-top:0; border-top:none;">
+    <div class="svc-list">
+      <div class="svc">
+        <div class="tag">Engineering</div>
+        <h3>Engineering &amp; Product Development</h3>
+        <p>Design engineering interface, mechanical and structural development, DFM, technical problem-solving, and product qualification.</p>
+      </div>
+      <div class="svc">
+        <div class="tag">Industrialization</div>
+        <h3>Manufacturing &amp; Industrialization</h3>
+        <p>Production setup, process development, manufacturing readiness, production scaling, and continuous improvement.</p>
+      </div>
+      <div class="svc">
+        <div class="tag">Operations</div>
+        <h3>Operations &amp; Production Leadership</h3>
+        <p>Production management, KPIs, planning, cross-functional coordination, and cost, schedule and operational performance.</p>
+      </div>
+      <div class="svc">
+        <div class="tag">Quality</div>
+        <h3>Quality &amp; Certification</h3>
+        <p>AS9100D / ISO 9001 quality systems, audit readiness, compliance, testing, certification, and corrective action.</p>
+      </div>
+    </div>
+    
+  <div class="page-nav">
+    <span></span>
+    <a href="how-i-help.html" class="next">How I Help &rarr;</a>
+  </div>
+
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div class="footer-top">
+    <div>© 2026 Cristian La Bella Consulting. All rights reserved.</div>
+    <div>Built &amp; maintained on GitHub Pages</div>
+  </div>
+  <div class="footer-disclaimer">
+    Information on this website is for general professional and informational purposes and does not constitute legal, regulatory, engineering certification, or guaranteed compliance advice. Project outcomes depend on the specific technical, contractual, regulatory and organizational circumstances of each engagement. All trademarks, standards and third-party names remain the property of their respective owners.
+  </div>
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  items.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selected Programs — Cristian La Bella Consulting</title>
+<meta name="description" content="DROXY autonomous drone, F150 heavy-lift UAV, ULM Storm 300, and ULM Rally 105 UL — aircraft and UAV programs across UAE, Saudi Arabia and Italy.">
+<meta name="author" content="Cristian La Bella">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-name" href="index.html">CRISTIAN <span>LA BELLA</span></a>
+    <nav class="links">
+      <a href="focus-areas.html">Focus Areas</a>
+      <a href="how-i-help.html">How I Help</a>
+      <a href="track-record.html">Track Record</a>
+      <a href="programs.html" class="active">Programs</a>
+      <a href="engagement-models.html">Engagement</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero sub-hero" style="border-top:none;">
+    <div class="eyebrow" style="margin-bottom:14px;">04 — Selected Programs</div>
+    <h1>A sample of the aircraft and UAV programs behind the numbers.</h1>
+  </section>
+
+  <section class="reveal" style="padding-top:0; border-top:none;">
+    <div class="prog-grid">
+      <div class="prog-card">
+        <div class="prog-photo"><img src="images/droxy.jpg" alt="DROXY electric autonomous drone on display"></div>
+        <div class="prog-body">
+          <div class="prog-tag">Urban Mobility — UAE</div>
+          <h3>Project DROXY</h3>
+          <p>Led the mechanical architecture and structural development of an electric autonomous VTOL drone, integrating high-torque propulsion with autonomous navigation sensors. Presented at GITEX Technology Week, Dubai.</p>
+        </div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-photo"><img src="images/f150.jpg" alt="F150 heavy-lift UAV airframe"></div>
+        <div class="prog-body">
+          <div class="prog-tag">Heavy-Lift UAV — 250kg Payload</div>
+          <h3>Autonomous Heavy-Lift UAV (F150)</h3>
+          <p>Airframe redesign in 7075-T6 aluminum and composites for a GPS-denied autonomous platform. Result: +40% structural strength, +25% payload capacity, 99.2% navigation accuracy.</p>
+        </div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-photo"><img src="images/storm300.jpg" alt="STORM 300 ultralight aircraft"></div>
+        <div class="prog-body">
+          <div class="prog-tag">Mass-Production Aircraft</div>
+          <h3>ULM Storm 300</h3>
+          <p>Design lead for structural evolution and mass-production readiness of an ultralight aircraft — 15% weight reduction, improved safety margins, and a 30% increase in manufacturing output.</p>
+        </div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-photo"><img src="images/rally105.jpg" alt="RALLY 105 UL ultralight aircraft"></div>
+        <div class="prog-body">
+          <div class="prog-tag">Composite / Metallic Integration</div>
+          <h3>ULM Rally 105 UL</h3>
+          <p>Managed the engineering interface between a composite fuselage and aluminum-alloy wings, achieving a 15% weight reduction while meeting LTF-UL and EASA-aligned airworthiness standards.</p>
+        </div>
+      </div>
+    </div>
+    
+  <div class="page-nav">
+    <a href="track-record.html">&larr; Track Record</a>
+    <a href="engagement-models.html" class="next">Engagement &rarr;</a>
+  </div>
+
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div class="footer-top">
+    <div>© 2026 Cristian La Bella Consulting. All rights reserved.</div>
+    <div>Built &amp; maintained on GitHub Pages</div>
+  </div>
+  <div class="footer-disclaimer">
+    Information on this website is for general professional and informational purposes and does not constitute legal, regulatory, engineering certification, or guaranteed compliance advice. Project outcomes depend on the specific technical, contractual, regulatory and organizational circumstances of each engagement. All trademarks, standards and third-party names remain the property of their respective owners.
+  </div>
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  items.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>

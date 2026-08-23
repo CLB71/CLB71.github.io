@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How I Help — Cristian La Bella Consulting</title>
+<meta name="description" content="Assess, Design, Implement, Transfer — a practical, hands-on approach to aerospace and defense manufacturing consulting.">
+<meta name="author" content="Cristian La Bella">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-name" href="index.html">CRISTIAN <span>LA BELLA</span></a>
+    <nav class="links">
+      <a href="focus-areas.html">Focus Areas</a>
+      <a href="how-i-help.html" class="active">How I Help</a>
+      <a href="track-record.html">Track Record</a>
+      <a href="programs.html">Programs</a>
+      <a href="engagement-models.html">Engagement</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero sub-hero" style="border-top:none;">
+    <div class="eyebrow" style="margin-bottom:14px;">02 — How I Help</div>
+    <h1>A practical sequence, not a framework for its own sake.</h1>
+  </section>
+
+  <section class="reveal" style="padding-top:0; border-top:none;">
+    <div class="approach-list">
+      <div class="ap-row">
+        <div class="ap-mark">A.</div>
+        <div>
+          <h3>Assess</h3>
+          <p>Understand the technical, operational and organizational situation — where the real gaps and risks actually sit, not a generic checklist.</p>
+        </div>
+      </div>
+      <div class="ap-row">
+        <div class="ap-mark">B.</div>
+        <div>
+          <h3>Design</h3>
+          <p>Develop the processes, systems and implementation plan required — prioritized by what actually protects the program, not by convenience.</p>
+        </div>
+      </div>
+      <div class="ap-row">
+        <div class="ap-mark">C.</div>
+        <div>
+          <h3>Implement</h3>
+          <p>Work directly with your Engineering, Production, Manufacturing or Quality teams to put the plan into practice.</p>
+        </div>
+      </div>
+      <div class="ap-row">
+        <div class="ap-mark">D.</div>
+        <div>
+          <h3>Transfer</h3>
+          <p>Build internal capability so the organization can run and own the systems independently after the engagement ends.</p>
+        </div>
+      </div>
+    </div>
+    
+  <div class="page-nav">
+    <a href="focus-areas.html">&larr; Focus Areas</a>
+    <a href="track-record.html" class="next">Track Record &rarr;</a>
+  </div>
+
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div class="footer-top">
+    <div>© 2026 Cristian La Bella Consulting. All rights reserved.</div>
+    <div>Built &amp; maintained on GitHub Pages</div>
+  </div>
+  <div class="footer-disclaimer">
+    Information on this website is for general professional and informational purposes and does not constitute legal, regulatory, engineering certification, or guaranteed compliance advice. Project outcomes depend on the specific technical, contractual, regulatory and organizational circumstances of each engagement. All trademarks, standards and third-party names remain the property of their respective owners.
+  </div>
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  items.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
