@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cristian La Bella — Digital Card</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body{ display:flex; align-items:center; justify-content:center; min-height:100vh; padding:24px; }
+  .card-wrap{
+    width:100%; max-width:400px; background:var(--panel); border:1px solid var(--line);
+    position:relative; z-index:1; padding:44px 32px 36px; text-align:center;
+  }
+  .card-logo{ height:90px; width:auto; margin-bottom:22px; }
+  .card-name{ font-family:'Archivo',sans-serif; font-weight:900; font-size:26px; color:var(--paper); }
+  .card-name span{ color:var(--accent); }
+  .card-title{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--muted); margin-top:10px;
+  }
+  .card-rule{ width:60px; height:1px; background:var(--accent); margin:24px auto; }
+  .card-links{ display:flex; flex-direction:column; gap:12px; margin-bottom:24px; }
+  .card-links a{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    padding:13px 18px; border:1px solid var(--line); text-decoration:none;
+    font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:0.02em; color:var(--paper);
+    transition:border-color .2s ease;
+  }
+  .card-links a:hover{ border-color:var(--accent); }
+  .card-links .icon{ font-size:15px; }
+  .save-btn{
+    display:block; padding:14px 18px; background:var(--accent); color:var(--ink);
+    text-decoration:none; font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:13px;
+    letter-spacing:0.05em; text-transform:uppercase; margin-bottom:20px;
+  }
+  .card-footer{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--muted); letter-spacing:0.04em; }
+  .card-footer a{ color:var(--accent); text-decoration:none; }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<div class="card-wrap">
+  <img class="card-logo" src="images/nav-logo.png" alt="CLB">
+  <div class="card-name">CRISTIAN <span>LA BELLA</span></div>
+  <div class="card-title">Aerospace &amp; Defense Manufacturing Consultant</div>
+  <div class="card-rule"></div>
+
+  <a class="save-btn" href="cristian-la-bella.vcf" download>+ Save to Contacts</a>
+
+  <div class="card-links">
+    <a href="mailto:cris@cristianlabella.com"><span class="icon">&#9993;</span> cris@cristianlabella.com</a>
+    <a href="https://www.linkedin.com/in/crislb" target="_blank" rel="noopener"><span class="icon">in</span> linkedin.com/in/crislb</a>
+    <a href="https://cristianlabella.com"><span class="icon">&#9673;</span> cristianlabella.com</a>
+  </div>
+
+  <div class="card-footer">Aerospace Consulting &middot; East Asia &middot; <a href="index.html">Visit full site &rarr;</a></div>
+</div>
+
+</body>
+</html>
