@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manufacturing Readiness Assessment — Cristian La Bella Consulting</title>
+<meta name="description" content="Free 24-question manufacturing readiness assessment covering engineering, industrialization, production, quality and organization. Instant score and downloadable PDF report.">
+<meta name="author" content="Cristian La Bella">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-name" href="index.html"><img src="images/nav-logo.png" alt="CLB logo" class="nav-logo">CRISTIAN <span>LA BELLA</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="links" id="navLinks">
+      <a href="about.html">About</a>
+      <a href="assessment.html" class="active">Assessment</a>
+      <a href="focus-areas.html">Focus Areas</a>
+      <a href="how-i-help.html">How I Help</a>
+      <a href="track-record.html">Track Record</a>
+      <a href="programs.html">Programs</a>
+      <a href="engagement-models.html">Engagement</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero sub-hero" style="border-top:none;">
+    <div class="eyebrow" style="margin-bottom:14px;">Free Tool</div>
+    <h1>Manufacturing Readiness Assessment</h1>
+    <p class="assess-intro">24 questions across engineering, industrialization, production, quality and organization. Answer honestly — this takes about 5 minutes and gives you an instant, downloadable readiness report, no email required.</p>
+    <div class="assess-meta">SCALE: 1 = Not in place &nbsp;&middot;&nbsp; 2 = Informal / ad hoc &nbsp;&middot;&nbsp; 3 = Partially defined &nbsp;&middot;&nbsp; 4 = Defined and followed &nbsp;&middot;&nbsp; 5 = Mature, continuously improved</div>
+  </section>
+
+  <section class="reveal" style="padding-top:0; border-top:none;">
+    <form id="assessForm">
+
+      <div class="assess-cat">
+        <div class="assess-cat-head"><span class="assess-cat-num">01</span><span class="assess-cat-title">Engineering</span></div>
+        <div class="assess-q"><div class="assess-q-text">How mature is your product design and engineering process?</div><select data-cat="Engineering" required><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How well controlled are engineering drawings and documents?</div><select data-cat="Engineering" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How disciplined is your engineering change (ECN) process?</div><select data-cat="Engineering" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How well is product configuration tracked and controlled?</div><select data-cat="Engineering" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How smooth is the handover from engineering to manufacturing?</div><select data-cat="Engineering" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+      </div>
+
+      <div class="assess-cat">
+        <div class="assess-cat-head"><span class="assess-cat-num">02</span><span class="assess-cat-title">Industrialization</span></div>
+        <div class="assess-q"><div class="assess-q-text">How well defined are your manufacturing processes?</div><select data-cat="Industrialization" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How complete and current are shop-floor work instructions?</div><select data-cat="Industrialization" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How rigorously are new processes validated before production?</div><select data-cat="Industrialization" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How structured is your production readiness review process?</div><select data-cat="Industrialization" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How well managed is tooling and equipment qualification/maintenance?</div><select data-cat="Industrialization" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+      </div>
+
+      <div class="assess-cat">
+        <div class="assess-cat-head"><span class="assess-cat-num">03</span><span class="assess-cat-title">Production</span></div>
+        <div class="assess-q"><div class="assess-q-text">How reliable is your production planning and scheduling?</div><select data-cat="Production" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How well do you understand and manage production capacity?</div><select data-cat="Production" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How consistently are production KPIs tracked and acted on?</div><select data-cat="Production" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How effectively are bottlenecks identified and resolved?</div><select data-cat="Production" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How robust is your traceability and non-conformance handling?</div><select data-cat="Production" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+      </div>
+
+      <div class="assess-cat">
+        <div class="assess-cat-head"><span class="assess-cat-num">04</span><span class="assess-cat-title">Quality</span></div>
+        <div class="assess-q"><div class="assess-q-text">How mature is your quality management system?</div><select data-cat="Quality" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How effective is your internal audit program?</div><select data-cat="Quality" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How robust is your corrective / preventive action process?</div><select data-cat="Quality" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How well do you manage supplier quality?</div><select data-cat="Quality" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How ready is your organization for AS9100D requirements?</div><select data-cat="Quality" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+      </div>
+
+      <div class="assess-cat">
+        <div class="assess-cat-head"><span class="assess-cat-num">05</span><span class="assess-cat-title">Organization</span></div>
+        <div class="assess-q"><div class="assess-q-text">How clearly defined are roles and ownership?</div><select data-cat="Organization" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How effective is communication across departments?</div><select data-cat="Organization" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How structured is leadership's review of performance?</div><select data-cat="Organization" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How well does the organization measure and use performance data?</div><select data-cat="Organization" required><option value="">Select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+      </div>
+
+      <div class="assess-submit-row">
+        <div class="assess-progress" id="assessProgress">0 of 24 answered</div>
+        <button type="submit" class="btn">Calculate My Score</button>
+      </div>
+    </form>
+
+    <div class="assess-results" id="assessResults">
+      <div class="assess-score-row">
+        <div>
+          <div class="assess-score-big" id="scoreOverall">0%</div>
+          <div class="assess-score-lab">Overall Readiness</div>
+        </div>
+        <div class="assess-bars" id="scoreBars"></div>
+      </div>
+
+      <div id="assessCallouts"></div>
+
+      <div class="assess-cta-row">
+        <a class="btn" href="#" id="downloadPdfBtn">Download PDF Report</a>
+        <a class="btn ghost" href="contact.html">Discuss My Results &rarr;</a>
+      </div>
+    </div>
+
+    
+  <div class="page-nav">
+    <a href="about.html">&larr; About</a>
+    <a href="focus-areas.html" class="next">Focus Areas &rarr;</a>
+  </div>
+
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+  (function(){
+    const form = document.getElementById('assessForm');
+    const selects = () => Array.from(form.querySelectorAll('select'));
+    const progress = document.getElementById('assessProgress');
+
+    function updateProgress(){
+      const answered = selects().filter(s => s.value !== '').length;
+      progress.textContent = answered + ' of 24 answered';
+    }
+    selects().forEach(s => s.addEventListener('change', updateProgress));
+
+    const CATEGORY_ADVICE = {
+      Engineering: "Strengthen engineering change control and the engineering-to-manufacturing handover \u2014 this is usually where rework and schedule slip originate.",
+      Industrialization: "Formalize process validation and production readiness reviews before scaling up \u2014 catching gaps here is far cheaper than catching them on the line.",
+      Production: "Improve KPI visibility and bottleneck resolution discipline to protect delivery performance and cost.",
+      Quality: "Prioritize AS9100D-aligned corrective action and internal audit discipline \u2014 this is what auditors and customers scrutinize first.",
+      Organization: "Clarify ownership across departments and strengthen the cadence of management review \u2014 systems only work when someone owns them."
+    };
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const cats = {};
+      selects().forEach(s => {
+        const cat = s.dataset.cat;
+        if(!cats[cat]) cats[cat] = [];
+        cats[cat].push(parseInt(s.value || '0', 10));
+      });
+
+      const catScores = {};
+      let sumPct = 0;
+      Object.keys(cats).forEach(cat => {
+        const vals = cats[cat];
+        const pct = Math.round((vals.reduce((a,b)=>a+b,0) / (vals.length*5)) * 100);
+        catScores[cat] = pct;
+        sumPct += pct;
+      });
+      const overall = Math.round(sumPct / Object.keys(catScores).length);
+
+      document.getElementById('scoreOverall').textContent = overall + '%';
+
+      const barsEl = document.getElementById('scoreBars');
+      barsEl.innerHTML = '';
+      Object.keys(catScores).forEach(cat => {
+        const pct = catScores[cat];
+        barsEl.innerHTML += '<div class="assess-bar-row"><div class="assess-bar-label">' + cat + '</div><div class="assess-bar-track"><div class="assess-bar-fill" style="width:' + pct + '%;"></div></div><div class="assess-bar-pct">' + pct + '%</div></div>';
+      });
+
+      const strengths = Object.keys(catScores).filter(c => catScores[c] >= 75);
+      const gaps = Object.keys(catScores).filter(c => catScores[c] < 60);
+      let calloutHtml = '';
+      if(strengths.length){
+        calloutHtml += '<div class="assess-callout"><h4>Strengths</h4><p>' + strengths.join(', ') + ' \u2014 scoring 75% or above, a solid foundation to build on.</p></div>';
+      }
+      if(gaps.length){
+        const advice = gaps.map(g => CATEGORY_ADVICE[g]).join(' ');
+        calloutHtml += '<div class="assess-callout"><h4>Priority Gaps</h4><p>' + gaps.join(', ') + ' \u2014 scoring below 60%. ' + advice + '</p></div>';
+      }
+      if(!gaps.length && !strengths.length){
+        calloutHtml += '<div class="assess-callout"><h4>Balanced Profile</h4><p>No area scores in the critical range, and no area yet stands out as a clear strength \u2014 a good candidate for a structured review to prioritize next steps.</p></div>';
+      }
+      document.getElementById('assessCallouts').innerHTML = calloutHtml;
+
+      document.getElementById('assessResults').classList.add('show');
+      document.getElementById('assessResults').scrollIntoView({behavior:'smooth'});
+
+      window._assessData = { overall: overall, catScores: catScores, gaps: gaps, strengths: strengths };
+    });
+
+    document.getElementById('downloadPdfBtn').addEventListener('click', function(e){
+      e.preventDefault();
+      if(!window._assessData){ return; }
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      const data = window._assessData;
+
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(18);
+      doc.text('Manufacturing Readiness Assessment', 20, 24);
+      doc.setFont('helvetica', 'normal'); doc.setFontSize(10);
+      doc.text('Prepared by Cristian La Bella \u2014 cristianlabella.com', 20, 32);
+
+      doc.setFontSize(14); doc.setFont('helvetica','bold');
+      doc.text('Overall Readiness Score: ' + data.overall + '%', 20, 48);
+
+      doc.setFontSize(11); doc.setFont('helvetica','bold');
+      doc.text('Category Breakdown', 20, 62);
+      doc.setFont('helvetica','normal'); doc.setFontSize(10);
+      let y = 70;
+      Object.keys(data.catScores).forEach(cat => {
+        doc.text(cat + ': ' + data.catScores[cat] + '%', 24, y);
+        y += 8;
+      });
+
+      y += 6;
+      if(data.strengths.length){
+        doc.setFont('helvetica','bold'); doc.text('Strengths', 20, y); y += 8;
+        doc.setFont('helvetica','normal');
+        doc.text(doc.splitTextToSize(data.strengths.join(', '), 170), 24, y); y += 14;
+      }
+      if(data.gaps.length){
+        doc.setFont('helvetica','bold'); doc.text('Priority Gaps', 20, y); y += 8;
+        doc.setFont('helvetica','normal');
+        doc.text(doc.splitTextToSize(data.gaps.join(', '), 170), 24, y); y += 14;
+      }
+
+      y += 6;
+      doc.setFont('helvetica','bold'); doc.text('Next Step', 20, y); y += 8;
+      doc.setFont('helvetica','normal');
+      doc.text(doc.splitTextToSize('Book a short consultation at cristianlabella.com/contact.html to review these results and identify the fastest path to closing your priority gaps.', 170), 24, y);
+
+      doc.save('manufacturing-readiness-report.pdf');
+    });
+  })();
+  </script>
+
+</main>
+
+<footer class="wrap">
+  <div class="footer-top">
+    <div>© 2026 Cristian La Bella Consulting. All rights reserved.</div>
+    <div>Built &amp; maintained on GitHub Pages</div>
+  </div>
+  <div class="footer-disclaimer">
+    Information on this website is for general professional and informational purposes and does not constitute legal, regulatory, engineering certification, or guaranteed compliance advice. Project outcomes depend on the specific technical, contractual, regulatory and organizational circumstances of each engagement. All trademarks, standards and third-party names remain the property of their respective owners.
+  </div>
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  items.forEach(el=>io.observe(el));
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if(navToggle && navLinks){
+    navToggle.addEventListener('click', ()=>{
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', open);
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
