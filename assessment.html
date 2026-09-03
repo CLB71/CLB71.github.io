@@ -39,7 +39,7 @@
   <section class="hero sub-hero" style="border-top:none;">
     <div class="eyebrow" style="margin-bottom:14px;">Free Tool</div>
     <h1>Manufacturing Readiness Assessment</h1>
-    <p class="assess-intro">24 questions across engineering, industrialization, production, quality and organization. Answer as many as apply — skip any that don't — for an instant, downloadable readiness report. Takes about 5 minutes, no email required.</p>
+    <p class="assess-intro">24 questions across engineering, industrialization, production, quality and organization. Answer as many questions as apply — skip any that don't — to receive an instant preliminary readiness report. Takes about 5 minutes, no email required.</p>
     <div class="assess-meta">SCALE: 1 = Not in place &nbsp;&middot;&nbsp; 2 = Informal / ad hoc &nbsp;&middot;&nbsp; 3 = Partially defined &nbsp;&middot;&nbsp; 4 = Defined and followed &nbsp;&middot;&nbsp; 5 = Mature, continuously improved</div>
   </section>
 
@@ -101,15 +101,29 @@
         <div>
           <div class="assess-score-big" id="scoreOverall">0%</div>
           <div class="assess-score-lab">Overall Readiness</div>
+          <div class="assess-band" id="scoreBand"></div>
+          <div class="assess-answered" id="scoreAnswered"></div>
         </div>
         <div class="assess-bars" id="scoreBars"></div>
       </div>
 
+      <div class="assess-radar-wrap" id="radarWrap">
+        <div class="assess-radar-title">Readiness Profile</div>
+        <div id="radarChart"></div>
+      </div>
+
       <div id="assessCallouts"></div>
 
+      <div class="assess-callout assess-recommendation" id="recommendationBox" style="display:none;">
+        <h4>CLB Recommendation</h4>
+        <p id="recommendationText"></p>
+      </div>
+
+      <div class="assess-disclaimer">This preliminary self-assessment is intended as an initial indication of manufacturing readiness. It does not constitute an audit, certification, or formal compliance assessment.</div>
+
       <div class="assess-cta-row">
-        <a class="btn" href="#" id="downloadPdfBtn">Download PDF Report</a>
-        <a class="btn ghost" href="contact.html">Discuss My Results &rarr;</a>
+        <a class="btn" href="#" id="downloadPdfBtn">Download Preliminary PDF Report</a>
+        <a class="btn ghost" href="contact.html">Discuss Your Results &rarr;</a>
       </div>
     </div>
 
@@ -142,6 +156,52 @@
       Organization: "Clarify ownership across departments and strengthen the cadence of management review \u2014 systems only work when someone owns them."
     };
 
+    const SCORE_BANDS = [
+      { min: 0,  label: "Early / Limited", msg: "Fundamental controls and ownership require significant development." },
+      { min: 40, label: "Developing",      msg: "Core practices exist but require structure, consistency and stronger execution." },
+      { min: 60, label: "Established",     msg: "A functional foundation exists, with identifiable areas requiring strengthening." },
+      { min: 75, label: "Strong",          msg: "The organization demonstrates a solid operational foundation with targeted improvement opportunities." },
+      { min: 90, label: "Advanced",        msg: "The organization shows a mature operating model with opportunities for continuous improvement." }
+    ];
+    function getBand(score){
+      let band = SCORE_BANDS[0];
+      SCORE_BANDS.forEach(b => { if(score >= b.min) band = b; });
+      return band;
+    }
+
+    function drawRadar(catScores, categories){
+      const size = 320, cx = size/2, cy = size/2, r = 110;
+      const n = categories.length;
+      const angleFor = i => (Math.PI * 2 * i / n) - Math.PI/2;
+      function pointAt(i, val){
+        const a = angleFor(i);
+        const rad = r * (val/100);
+        return [cx + rad*Math.cos(a), cy + rad*Math.sin(a)];
+      }
+      let grid = '';
+      [0.25, 0.5, 0.75, 1].forEach(frac => {
+        let pts = [];
+        for(let i=0;i<n;i++){ pts.push(pointAt(i, frac*100).join(',')); }
+        grid += '<polygon points="' + pts.join(' ') + '" fill="none" stroke="#2A3444" stroke-width="1"/>';
+      });
+      let axes = '', labels = '';
+      categories.forEach((cat, i) => {
+        const a = angleFor(i);
+        const ex = cx + r*Math.cos(a), ey = cy + r*Math.sin(a);
+        axes += '<line x1="' + cx + '" y1="' + cy + '" x2="' + ex + '" y2="' + ey + '" stroke="#2A3444" stroke-width="1"/>';
+        const lx = cx + (r+26)*Math.cos(a), ly = cy + (r+26)*Math.sin(a);
+        labels += '<text x="' + lx + '" y="' + ly + '" fill="#8B95A3" font-size="10" font-family="IBM Plex Mono, monospace" text-anchor="middle" dominant-baseline="middle">' + cat + '</text>';
+      });
+      let dataPts = categories.map((cat,i) => pointAt(i, catScores[cat]).join(','));
+      const dataPoly = '<polygon points="' + dataPts.join(' ') + '" fill="#C9812E" fill-opacity="0.22" stroke="#C9812E" stroke-width="2"/>';
+      let dots = '';
+      categories.forEach((cat,i) => {
+        const p = pointAt(i, catScores[cat]);
+        dots += '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="3.5" fill="#C9812E"/>';
+      });
+      return '<svg width="' + size + '" height="' + (size+20) + '" viewBox="0 0 ' + size + ' ' + (size+20) + '">' + grid + axes + dataPoly + dots + labels + '</svg>';
+    }
+
     form.addEventListener('submit', function(e){
       e.preventDefault();
       const answeredCount = selects().filter(s => s.value !== '').length;
@@ -168,8 +228,11 @@
         catCount++;
       });
       const overall = catCount ? Math.round(sumPct / catCount) : 0;
+      const band = getBand(overall);
 
       document.getElementById('scoreOverall').textContent = overall + '%';
+      document.getElementById('scoreBand').textContent = band.label;
+      document.getElementById('scoreAnswered').textContent = answeredCount + ' of 24 questions answered';
 
       const barsEl = document.getElementById('scoreBars');
       barsEl.innerHTML = '';
@@ -181,6 +244,16 @@
           barsEl.innerHTML += '<div class="assess-bar-row"><div class="assess-bar-label">' + cat + '</div><div class="assess-bar-track"><div class="assess-bar-fill" style="width:' + pct + '%;"></div></div><div class="assess-bar-pct">' + pct + '%</div></div>';
         }
       });
+
+      const allCats = Object.keys(catScores);
+      const radarWrap = document.getElementById('radarWrap');
+      const complete = allCats.every(c => catScores[c] !== null);
+      if(complete){
+        document.getElementById('radarChart').innerHTML = drawRadar(catScores, allCats);
+        radarWrap.style.display = 'block';
+      } else {
+        document.getElementById('radarChart').innerHTML = '<div class="assess-radar-note">Radar chart available once every category has at least one answer.</div>';
+      }
 
       const strengths = Object.keys(catScores).filter(c => catScores[c] !== null && catScores[c] >= 75);
       const gaps = Object.keys(catScores).filter(c => catScores[c] !== null && catScores[c] < 60);
@@ -197,10 +270,20 @@
       }
       document.getElementById('assessCallouts').innerHTML = calloutHtml;
 
+      let recText = band.msg;
+      if(gaps.length){
+        const topGap = gaps.reduce((worst, g) => (catScores[g] < catScores[worst] ? g : worst), gaps[0]);
+        recText += ' Priority focus: ' + topGap + '. ' + CATEGORY_ADVICE[topGap];
+      } else {
+        recText += ' No category currently falls below the established threshold \u2014 a structured review would help identify the next level of improvement.';
+      }
+      document.getElementById('recommendationText').textContent = recText;
+      document.getElementById('recommendationBox').style.display = 'block';
+
       document.getElementById('assessResults').classList.add('show');
       document.getElementById('assessResults').scrollIntoView({behavior:'smooth'});
 
-      window._assessData = { overall: overall, catScores: catScores, gaps: gaps, strengths: strengths };
+      window._assessData = { overall: overall, catScores: catScores, gaps: gaps, strengths: strengths, answeredCount: answeredCount, band: band, recommendation: recText };
     });
 
     function buildPdf(logoDataUrl){
@@ -222,10 +305,12 @@
       }
       doc.setTextColor(233, 234, 228);
       doc.setFont('helvetica', 'bold'); doc.setFontSize(16);
-      doc.text('Manufacturing Readiness Assessment', 46, 18);
+      doc.text('Manufacturing Readiness Assessment', 46, 16);
       doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5);
+      doc.setTextColor(201, 129, 46);
+      doc.text('PRELIMINARY SELF-ASSESSMENT', 46, 22.5);
       doc.setTextColor(160, 168, 180);
-      doc.text('Prepared by Cristian La Bella  \u2014  cristianlabella.com', 46, 26);
+      doc.text('Prepared by Cristian La Bella  \u2014  cristianlabella.com', 46, 29);
 
       let y = 56;
 
@@ -235,9 +320,11 @@
       doc.text(data.overall + '%', 16, y);
       doc.setTextColor(...MUTED);
       doc.setFont('helvetica', 'normal'); doc.setFontSize(10);
-      doc.text('OVERALL READINESS', 16, y + 7);
+      doc.text('OVERALL READINESS  \u2014  ' + data.band.label.toUpperCase(), 16, y + 7);
+      doc.setFontSize(8.5);
+      doc.text(data.answeredCount + ' of 24 questions answered', 16, y + 13);
 
-      y += 26;
+      y += 32;
       doc.setDrawColor(220,220,220);
       doc.line(16, y, pageW-16, y);
       y += 14;
@@ -298,6 +385,8 @@
         calloutBox('BALANCED PROFILE', 'No area scores in the critical range, and no area yet stands out as a clear strength.', AMBER);
       }
 
+      calloutBox('CLB RECOMMENDATION', data.recommendation, AMBER);
+
       y += 4;
       doc.setFillColor(...PANEL);
       doc.rect(16, y, pageW - 32, 26, 'F');
@@ -307,6 +396,11 @@
       doc.setFont('helvetica', 'normal'); doc.setFontSize(9);
       doc.setTextColor(200, 204, 212);
       doc.text(doc.splitTextToSize('Book a short consultation at cristianlabella.com/contact.html to review these results and identify the fastest path to closing your priority gaps.', pageW - 44), 22, y + 16);
+
+      y += 34;
+      doc.setFont('helvetica', 'italic'); doc.setFontSize(7.5);
+      doc.setTextColor(...MUTED);
+      doc.text(doc.splitTextToSize('This preliminary self-assessment is intended as an initial indication of manufacturing readiness. It does not constitute an audit, certification, or formal compliance assessment.', pageW - 32), 16, y);
 
       // footer
       const pageH = doc.internal.pageSize.getHeight();
