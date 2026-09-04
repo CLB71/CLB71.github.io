@@ -25,7 +25,7 @@
       <a href="about.html">About</a>
       <div class="nav-dropdown">
         <button class="nav-drop-trigger" type="button">Tools <span class="caret">&#9662;</span></button>
-        <div class="nav-drop-menu">
+        <div class="nav-drop-menu" style="display:none;">
           <a href="assessment.html">Assessment</a>
           <a href="as9100d.html">AS9100D Check</a>
         </div>
@@ -115,8 +115,17 @@
     const menu = trigger.nextElementSibling;
     trigger.addEventListener('click', function(e){
       e.stopPropagation();
-      const isOpen = menu.classList.toggle('open');
+      const isOpen = !menu.classList.contains('open');
+      menu.classList.toggle('open', isOpen);
       trigger.classList.toggle('open', isOpen);
+      menu.style.display = isOpen ? 'flex' : 'none';
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        trigger.classList.remove('open');
+        menu.style.display = 'none';
+      });
     });
   });
   document.addEventListener('click', function(e){
@@ -125,6 +134,7 @@
       if(!menu.contains(e.target) && !trigger.contains(e.target)){
         menu.classList.remove('open');
         trigger.classList.remove('open');
+        menu.style.display = 'none';
       }
     });
   });
