@@ -45,7 +45,8 @@
   <section class="hero sub-hero" style="border-top:none;">
     <div class="eyebrow" style="margin-bottom:14px;">Free Tool</div>
     <h1>AS9100D Readiness Check</h1>
-    <p class="assess-intro">24 questions across the quality management system, risk, operational planning, configuration, supplier &amp; production control, monitoring, and audit/review. Answer as many questions as apply — skip any that don't — to receive an instant preliminary readiness report. Takes about 5 minutes, no email required.</p>
+    <p class="assess-tool-subtitle">A structured self-assessment of the quality management, risk, operational and production-control conditions expected under AS9100D.</p>
+    <p class="assess-intro">Answer the questions that apply to your organization — skip any that don't. Your results identify strengths, potential gaps and areas requiring further attention before a certification audit. 24 questions, about 5 minutes, no email required.</p>
     <div class="assess-meta">SCALE: 1 = Not in place &nbsp;&middot;&nbsp; 2 = Informal / ad hoc &nbsp;&middot;&nbsp; 3 = Partially defined &nbsp;&middot;&nbsp; 4 = Defined and followed &nbsp;&middot;&nbsp; 5 = Mature, continuously improved</div>
   </section>
 
@@ -179,16 +180,36 @@
     };
 
     const SCORE_BANDS = [
-      { min: 0,  label: "Early / Limited", msg: "Fundamental AS9100D controls and ownership require significant development before a certification audit would be realistic." },
-      { min: 40, label: "Developing",      msg: "Core practices exist but require structure, consistency and stronger execution to withstand AS9100D scrutiny." },
-      { min: 60, label: "Established",     msg: "A functional foundation exists, with identifiable clauses requiring strengthening ahead of an audit." },
-      { min: 75, label: "Strong",          msg: "The organization demonstrates a solid AS9100D foundation with targeted improvement opportunities." },
-      { min: 90, label: "Advanced",        msg: "The organization shows a mature, audit-ready operating model with opportunities for continuous improvement." }
+      { min: 0,  label: "Early / Limited", cls: "low", msg: "The assessment indicates fundamental AS9100D controls and ownership require significant development before a certification audit would be realistic." },
+      { min: 40, label: "Developing",      cls: "low", msg: "The assessment indicates core practices exist but require structure, consistency and stronger execution to withstand AS9100D scrutiny." },
+      { min: 60, label: "Established",     cls: "mid", msg: "The assessment indicates a functional foundation, with identifiable clauses requiring strengthening ahead of an audit." },
+      { min: 75, label: "Strong",          cls: "",    msg: "The assessment indicates a solid AS9100D foundation with targeted improvement opportunities." },
+      { min: 90, label: "Advanced",        cls: "",    msg: "The assessment indicates a mature, audit-ready operating model with opportunities for continuous improvement." }
     ];
     function getBand(score){
       let band = SCORE_BANDS[0];
       SCORE_BANDS.forEach(b => { if(score >= b.min) band = b; });
       return band;
+    }
+
+    // Pattern-based diagnosis: reads combinations of strong/weak clause areas rather than
+    // just the single lowest score, so the recommendation reflects the shape of the
+    // results, not only its low point.
+    const PATTERN_INSIGHTS = [
+      { strong: "Quality Management System", weak: "Internal Audit & Management Review", text: "The management system is comparatively strong while Internal Audit & Management Review lags \u2014 a pattern that usually means the QMS exists on paper but isn't being tested and improved as intended, since audit and management review are only lightly applied." },
+      { strong: "Production Control", weak: "Monitoring, Measurement & Nonconformity", text: "Production Control is comparatively strong while Monitoring, Measurement & Nonconformity lags \u2014 product is being made consistently, but issues aren't being reliably caught, contained or root-caused when they occur. This is a common source of repeat audit findings." },
+      { strong: "Production Control", weak: "Supplier Control", text: "Production Control is comparatively strong while Supplier Control lags \u2014 internal production discipline exists, but that discipline isn't yet being extended to the supply chain, which is one of the most heavily scrutinized clauses in AS9100D audits." },
+      { strong: "Operational Planning & Product Realization", weak: "Configuration Management", text: "Operational Planning & Product Realization is comparatively strong while Configuration Management lags \u2014 requirements are well understood at the planning stage but aren't being reliably maintained or traced as products and processes change." },
+      { strong: "Quality Management System", weak: "Risk Management", text: "The management system is comparatively strong while Risk Management lags \u2014 documented QMS structure exists, but risk-based thinking isn't yet embedded in day-to-day decisions the way AS9100D expects." }
+    ];
+    function findPattern(catScores){
+      for(const rule of PATTERN_INSIGHTS){
+        const s = catScores[rule.strong], w = catScores[rule.weak];
+        if(s !== null && s !== undefined && w !== null && w !== undefined && s >= 75 && w < 60){
+          return rule.text;
+        }
+      }
+      return null;
     }
 
     function drawRadar(catScores, categories){
@@ -254,7 +275,9 @@
       const band = getBand(overall);
 
       document.getElementById('scoreOverall').textContent = overall + '%';
-      document.getElementById('scoreBand').textContent = band.label;
+      const bandEl = document.getElementById('scoreBand');
+      bandEl.textContent = band.label.toUpperCase();
+      bandEl.className = 'assess-band assess-status-label' + (band.cls ? ' ' + band.cls : '');
       document.getElementById('scoreAnswered').textContent = answeredCount + ' of ' + TOTAL_QUESTIONS + ' questions answered';
 
       const barsEl = document.getElementById('scoreBars');
@@ -282,11 +305,11 @@
       const gaps = Object.keys(catScores).filter(c => catScores[c] !== null && catScores[c] < 60);
       let calloutHtml = '';
       if(strengths.length){
-        calloutHtml += '<div class="assess-callout"><h4>Strengths</h4><p>' + strengths.join(', ') + ' \u2014 scoring 75% or above, a solid foundation to build on.</p></div>';
+        calloutHtml += '<div class="assess-callout"><h4>Strongest Areas</h4><p>' + strengths.join(', ') + ' \u2014 scoring 75% or above, a solid foundation to build on.</p></div>';
       }
       if(gaps.length){
         const advice = gaps.map(g => CATEGORY_ADVICE[g]).join(' ');
-        calloutHtml += '<div class="assess-callout"><h4>Priority Gaps</h4><p>' + gaps.join(', ') + ' \u2014 scoring below 60%. ' + advice + '</p></div>';
+        calloutHtml += '<div class="assess-callout"><h4>Priority Areas for Improvement</h4><p>' + gaps.join(', ') + ' \u2014 scoring below 60%. ' + advice + '</p></div>';
       }
       if(!gaps.length && !strengths.length){
         calloutHtml += '<div class="assess-callout"><h4>Balanced Profile</h4><p>No clause area scores in the critical range, and no area yet stands out as a clear strength \u2014 a good candidate for a structured pre-audit review.</p></div>';
@@ -294,9 +317,12 @@
       document.getElementById('assessCallouts').innerHTML = calloutHtml;
 
       let recText = band.msg;
-      if(gaps.length){
+      const pattern = findPattern(catScores);
+      if(pattern){
+        recText += ' ' + pattern;
+      } else if(gaps.length){
         const topGap = gaps.reduce((worst, g) => (catScores[g] < catScores[worst] ? g : worst), gaps[0]);
-        recText += ' Priority focus: ' + topGap + '. ' + CATEGORY_ADVICE[topGap];
+        recText += ' The primary opportunity is ' + topGap + '. ' + CATEGORY_ADVICE[topGap];
       } else {
         recText += ' No clause area currently falls below the established threshold \u2014 a structured pre-audit review would help identify the next level of improvement.';
       }
@@ -399,10 +425,10 @@
       }
 
       if(data.strengths.length){
-        calloutBox('STRENGTHS', data.strengths.join(', ') + ' \u2014 scoring 75% or above, a solid foundation to build on.', TEAL);
+        calloutBox('STRONGEST AREAS', data.strengths.join(', ') + ' \u2014 scoring 75% or above, a solid foundation to build on.', TEAL);
       }
       if(data.gaps.length){
-        calloutBox('PRIORITY GAPS', data.gaps.join(', ') + ' \u2014 scoring below 60%, worth addressing before an audit.', [180,70,60]);
+        calloutBox('PRIORITY AREAS FOR IMPROVEMENT', data.gaps.join(', ') + ' \u2014 scoring below 60%, worth addressing before an audit.', [180,70,60]);
       }
       if(!data.strengths.length && !data.gaps.length){
         calloutBox('BALANCED PROFILE', 'No clause area scores in the critical range, and no area yet stands out as a clear strength.', AMBER);

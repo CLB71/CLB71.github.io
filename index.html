@@ -23,7 +23,13 @@
     </button>
     <nav class="links" id="navLinks">
       <a href="about.html">About</a>
-      <a href="assessment.html">Assessment</a>
+      <div class="nav-dropdown">
+        <button class="nav-drop-trigger" type="button">Tools <span class="caret">&#9662;</span></button>
+        <div class="nav-drop-menu" style="display:none;">
+          <a href="assessment.html">Assessment</a>
+          <a href="as9100d.html">AS9100D Check</a>
+        </div>
+      </div>
       <a href="focus-areas.html">Focus Areas</a>
       <a href="how-i-help.html">How I Help</a>
       <a href="track-record.html">Track Record</a>
@@ -62,6 +68,18 @@
       <div class="cred">ASME MEMBER</div>
       <div class="cred">US PATENT CONTRIBUTOR</div>
       <div class="cred">AI FLUENCY CERTIFIED — ANTHROPIC ACADEMY</div>
+    </div>
+  </section>
+
+  <!-- ASSESSMENT CTA -->
+  <section class="reveal" style="padding-top:0; padding-bottom:0;">
+    <div class="home-assess-cta">
+      <div class="txt">
+        <div class="eyebrow">Free Diagnostic</div>
+        <h2>Is your manufacturing operation ready?</h2>
+        <p>Assess your Engineering, Industrialization, Production, Quality and Organization readiness — 24 questions, about 5 minutes, instant results, no email required.</p>
+      </div>
+      <a class="btn" href="assessment.html">Start the Assessment &rarr;</a>
     </div>
   </section>
 
@@ -158,7 +176,36 @@
       });
     });
   }
+
+  document.querySelectorAll('.nav-drop-trigger').forEach(function(trigger){
+    const menu = trigger.nextElementSibling;
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      const isOpen = !menu.classList.contains('open');
+      menu.classList.toggle('open', isOpen);
+      trigger.classList.toggle('open', isOpen);
+      menu.style.display = isOpen ? 'flex' : 'none';
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        trigger.classList.remove('open');
+        menu.style.display = 'none';
+      });
+    });
+  });
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.nav-drop-menu.open').forEach(function(menu){
+      const trigger = menu.previousElementSibling;
+      if(!menu.contains(e.target) && !trigger.contains(e.target)){
+        menu.classList.remove('open');
+        trigger.classList.remove('open');
+        menu.style.display = 'none';
+      }
+    });
+  });
 </script>
 
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "39eeb69f9bc246d49f4374257ca1c4e7"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

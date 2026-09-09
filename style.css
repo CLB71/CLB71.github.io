@@ -288,3 +288,27 @@ footer{ border-top:1px solid var(--line); padding:30px 0; }
   .nav-drop-menu a{ padding:10px 4px; font-size:13px; }
   .nav-drop-trigger{ padding:12px 4px; border-bottom:1px solid var(--line-soft); font-size:14px; width:100%; justify-content:space-between; }
 }
+
+/* ASSESSMENT — status label + tool intro subtitle */
+.assess-tool-subtitle{ font-family:'IBM Plex Sans',sans-serif; font-size:15px; color:#C7CCD4; max-width:640px; margin:0 auto 10px; line-height:1.55; }
+.assess-status-label{ display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); border:1px solid var(--teal); padding:4px 10px; margin-top:6px; }
+.assess-status-label.mid{ color:var(--accent); border-color:var(--accent); }
+.assess-status-label.low{ color:#C0463C; border-color:#C0463C; }
+
+/* PROGRAMS — Challenge / Role / Result breakdown */
+.prog-breakdown{ margin-top:14px; padding-top:14px; border-top:1px solid var(--line); }
+.prog-break-row{ display:grid; grid-template-columns:88px 1fr; gap:10px; margin-bottom:8px; }
+.prog-break-row:last-child{ margin-bottom:0; }
+.prog-break-label{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); padding-top:1px; }
+.prog-break-text{ font-size:13.5px; color:#C7CCD4; line-height:1.5; }
+
+/* HOMEPAGE — Assessment CTA band */
+.home-assess-cta{
+  margin:0 0 8px; padding:34px 30px; background:var(--panel); border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+}
+.home-assess-cta .txt{ max-width:560px; }
+.home-assess-cta .eyebrow{ margin-bottom:8px; }
+.home-assess-cta h2{ font-family:'Archivo',sans-serif; font-weight:800; font-size:22px; margin-bottom:8px; }
+.home-assess-cta p{ color:#C7CCD4; font-size:14.5px; }
+@media (max-width:760px){ .home-assess-cta{ padding:26px 22px; } }
