@@ -138,6 +138,12 @@
         <p id="recommendationText"></p>
       </div>
 
+      <div class="assess-callout assess-pathway" id="pathwayBox" style="display:none;">
+        <h4>Engagement Models to Consider</h4>
+        <p id="pathwayText"></p>
+        <a class="preview-link" href="engagement-models.html" style="display:inline-block; margin-top:8px;">View Engagement Models &rarr;</a>
+      </div>
+
       <div class="assess-disclaimer">This preliminary self-assessment is intended as an initial indication of AS9100D readiness. It does not constitute a certification audit, accreditation activity, or a guarantee of certification-body findings.</div>
 
       <div class="assess-cta-row">
@@ -210,6 +216,28 @@
         }
       }
       return null;
+    }
+
+    // Suggests an engagement model to consider based on the shape of the results \u2014
+    // framed as options to weigh, not a directive. Uses the same three models
+    // described on the Engagement Models page.
+    function suggestPathway(overall, gapsCount){
+      if(overall < 40 || gapsCount >= 3){
+        return {
+          name: "Direct Team Support (Embedded)",
+          text: "With this many clause areas below threshold, or an early-stage overall result, this scope of work often benefits from direct, embedded support inside Quality or Production \u2014 rather than periodic advice alone."
+        };
+      } else if(gapsCount >= 1){
+        return {
+          name: "Hands-On Delivery (Implementation)",
+          text: "The result points to a defined set of gaps rather than a broad weakness \u2014 well suited to hands-on development and deployment of the specific procedures or controls needed to close them ahead of an audit."
+        };
+      } else {
+        return {
+          name: "Independent Assessment (Advisory)",
+          text: "No clause area currently falls below the established threshold \u2014 an independent assessment can help validate current practice and identify strategic next steps before a certification audit."
+        };
+      }
     }
 
     function drawRadar(catScores, categories){
@@ -329,10 +357,14 @@
       document.getElementById('recommendationText').textContent = recText;
       document.getElementById('recommendationBox').style.display = 'block';
 
+      const pathway = suggestPathway(overall, gaps.length);
+      document.getElementById('pathwayText').textContent = pathway.name + ' \u2014 ' + pathway.text;
+      document.getElementById('pathwayBox').style.display = 'block';
+
       document.getElementById('assessResults').classList.add('show');
       document.getElementById('assessResults').scrollIntoView({behavior:'smooth'});
 
-      window._assessData = { overall: overall, catScores: catScores, gaps: gaps, strengths: strengths, answeredCount: answeredCount, band: band, recommendation: recText, total: TOTAL_QUESTIONS };
+      window._assessData = { overall: overall, catScores: catScores, gaps: gaps, strengths: strengths, answeredCount: answeredCount, band: band, recommendation: recText, total: TOTAL_QUESTIONS, pathway: pathway };
     });
 
     function buildPdf(logoDataUrl){
@@ -435,6 +467,7 @@
       }
 
       calloutBox('CLB RECOMMENDATION', data.recommendation, AMBER);
+      calloutBox('ENGAGEMENT MODELS TO CONSIDER', data.pathway.name + ' \u2014 ' + data.pathway.text, TEAL);
 
       y += 4;
       doc.setFillColor(...PANEL);

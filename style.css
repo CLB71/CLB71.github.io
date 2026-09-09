@@ -312,3 +312,7 @@ footer{ border-top:1px solid var(--line); padding:30px 0; }
 .home-assess-cta h2{ font-family:'Archivo',sans-serif; font-weight:800; font-size:22px; margin-bottom:8px; }
 .home-assess-cta p{ color:#C7CCD4; font-size:14.5px; }
 @media (max-width:760px){ .home-assess-cta{ padding:26px 22px; } }
+
+/* ASSESSMENT — engagement pathway callout */
+.assess-pathway{ border-color:var(--teal); }
+.assess-pathway h4{ color:var(--teal); }
