@@ -377,6 +377,16 @@
       const TEAL = [76, 133, 119];
       const MUTED = [110, 118, 130];
       const pageW = doc.internal.pageSize.getWidth();
+      const pageH = doc.internal.pageSize.getHeight();
+      const BOTTOM_MARGIN = 26;
+      const TOP_MARGIN = 22;
+
+      function checkPageBreak(neededHeight){
+        if(y + neededHeight > pageH - BOTTOM_MARGIN){
+          doc.addPage();
+          y = TOP_MARGIN;
+        }
+      }
 
       // header band
       doc.setFillColor(...NAVY);
@@ -418,6 +428,7 @@
 
       const barX = 78, barW = 92, barH = 5;
       Object.keys(data.catScores).forEach(cat => {
+        checkPageBreak(12);
         const pct = data.catScores[cat];
         doc.setFont('helvetica', 'normal'); doc.setFontSize(8.5);
         doc.setTextColor(60,60,60);
@@ -443,6 +454,7 @@
       function calloutBox(title, text, color){
         const lines = doc.splitTextToSize(text, pageW - 44);
         const boxH = 16 + lines.length * 5.5;
+        checkPageBreak(boxH);
         doc.setFillColor(247, 247, 245);
         doc.setDrawColor(...color);
         doc.setLineWidth(0.6);
@@ -470,6 +482,7 @@
       calloutBox('ENGAGEMENT MODELS TO CONSIDER', data.pathway.name + ' \u2014 ' + data.pathway.text, TEAL);
 
       y += 4;
+      checkPageBreak(30);
       doc.setFillColor(...PANEL);
       doc.rect(16, y, pageW - 32, 26, 'F');
       doc.setTextColor(233, 234, 228);
@@ -480,17 +493,22 @@
       doc.text(doc.splitTextToSize('Book a short consultation at cristianlabella.com/contact.html to review these results and build a prioritized path toward AS9100D certification readiness.', pageW - 44), 22, y + 16);
 
       y += 34;
+      const discLines = doc.splitTextToSize('This preliminary self-assessment is intended as an initial indication of AS9100D readiness. It does not constitute a certification audit, accreditation activity, or a guarantee of certification-body findings.', pageW - 32);
+      checkPageBreak(discLines.length * 4);
       doc.setFont('helvetica', 'italic'); doc.setFontSize(7.5);
       doc.setTextColor(...MUTED);
-      doc.text(doc.splitTextToSize('This preliminary self-assessment is intended as an initial indication of AS9100D readiness. It does not constitute a certification audit, accreditation activity, or a guarantee of certification-body findings.', pageW - 32), 16, y);
+      doc.text(discLines, 16, y);
 
-      // footer
-      const pageH = doc.internal.pageSize.getHeight();
-      doc.setDrawColor(230,230,230);
-      doc.line(16, pageH - 16, pageW - 16, pageH - 16);
-      doc.setFont('helvetica', 'normal'); doc.setFontSize(8);
-      doc.setTextColor(...MUTED);
-      doc.text('cristianlabella.com  \u00b7  cris@cristianlabella.com', 16, pageH - 10);
+      // footer on every page
+      const totalPages = doc.internal.getNumberOfPages();
+      for(let p = 1; p <= totalPages; p++){
+        doc.setPage(p);
+        doc.setDrawColor(230,230,230);
+        doc.line(16, pageH - 16, pageW - 16, pageH - 16);
+        doc.setFont('helvetica', 'normal'); doc.setFontSize(8);
+        doc.setTextColor(...MUTED);
+        doc.text('cristianlabella.com  \u00b7  cris@cristianlabella.com', 16, pageH - 10);
+      }
 
       doc.save('as9100d-readiness-report.pdf');
     }
