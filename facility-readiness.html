@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aerospace Manufacturing Facility Readiness Planner — Cristian La Bella Consulting</title>
+<meta name="description" content="Free 24-question Aerospace Manufacturing Facility Readiness Planner covering engineering, manufacturing engineering, production, quality, supply chain, equipment, workforce and certification readiness for a new or expanding facility. Instant score and downloadable PDF report.">
+<meta name="author" content="Cristian La Bella">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-name" href="index.html"><img src="images/nav-logo.png" alt="CLB logo" class="nav-logo">CRISTIAN <span>LA BELLA</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="links" id="navLinks">
+      <a href="about.html">About</a>
+      <div class="nav-dropdown">
+        <button class="nav-drop-trigger active" type="button">Tools <span class="caret">&#9662;</span></button>
+        <div class="nav-drop-menu" style="display:none;">
+          <a href="assessment.html">Assessment</a>
+          <a href="as9100d.html">AS9100D Check</a>
+          <a href="facility-readiness.html" class="active">Facility Readiness Planner</a>
+        </div>
+      </div>
+      <a href="focus-areas.html">Focus Areas</a>
+      <a href="how-i-help.html">How I Help</a>
+      <a href="track-record.html">Track Record</a>
+      <a href="programs.html">Programs</a>
+      <a href="engagement-models.html">Engagement</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero sub-hero" style="border-top:none;">
+    <div class="eyebrow" style="margin-bottom:14px;">Free Tool</div>
+    <h1>Aerospace Manufacturing Facility Readiness Planner</h1>
+    <p class="assess-tool-subtitle">A structured readiness assessment for establishing or industrializing an aerospace manufacturing facility — engineering, manufacturing engineering, production, quality, supply chain, equipment, workforce and certification readiness.</p>
+    <p class="assess-intro">Answer the questions that apply to your facility — skip any that don't. Your results identify strengths, potential gaps and areas requiring further attention as you move toward production. 24 questions, about 5 minutes, no email required.</p>
+    <div class="assess-meta">SCALE: 1 = Not in place &nbsp;&middot;&nbsp; 2 = Informal / ad hoc &nbsp;&middot;&nbsp; 3 = Partially defined &nbsp;&middot;&nbsp; 4 = Defined and followed &nbsp;&middot;&nbsp; 5 = Mature, continuously improved</div>
+  </section>
+
+  <section class="reveal" style="padding-top:0; border-top:none;">
+    <form id="assessForm">
+
+      <div class="assess-cat" id="facilityContext">
+        <div class="assess-cat-head"><span class="assess-cat-num">&#9776;</span><span class="assess-cat-title">Facility Context (optional)</span></div>
+        <div class="assess-q"><div class="assess-q-text">Facility type</div><select id="ctxFacilityType"><option value="">Select</option><option value="Aircraft">Aircraft</option><option value="UAV">UAV</option><option value="Aerostructures">Aerostructures</option><option value="Aluminium">Aluminium</option><option value="Composites">Composites</option><option value="Assembly">Assembly</option><option value="MRO">MRO</option><option value="Defence Manufacturing">Defence Manufacturing</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">Production stage</div><select id="ctxProductionStage"><option value="">Select</option><option value="Concept">Concept</option><option value="Facility Planning">Facility Planning</option><option value="Equipment Procurement">Equipment Procurement</option><option value="Process Development">Process Development</option><option value="Pilot Production">Pilot Production</option><option value="Ramp-Up">Ramp-Up</option><option value="Mature Production">Mature Production</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">Target certification</div><select id="ctxCertification"><option value="">Select</option><option value="ISO 9001">ISO 9001</option><option value="AS9100D">AS9100D</option><option value="Customer-Specific Requirements">Customer-Specific Requirements</option><option value="Other">Other</option></select></div>
+      </div>
+
+      <div class="assess-cat">
+        <div class="assess-cat-head"><span class="assess-cat-num">01</span><span class="assess-cat-title">Engineering</span></div>
+        <div class="assess-q"><div class="assess-q-text">How mature and finalized are the product engineering definition and drawings for this facility?</div><select data-cat="Engineering"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How well are engineering changes controlled and communicated to manufacturing?</div><select data-cat="Engineering"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How clearly are manufacturing and tooling requirements defined from the engineering data?</div><select data-cat="Engineering"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+      </div>
+
+      <div class="assess-cat">
+        <div class="assess-cat-head"><span class="assess-cat-num">02</span><span class="assess-cat-title">Manufacturing Engineering</span></div>
+        <div class="assess-q"><div class="assess-q-text">How developed are the process routings and work instructions for this facility?</div><select data-cat="Manufacturing Engineering"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How well have make-or-buy and process selection decisions been finalized?</div><select data-cat="Manufacturing Engineering"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How mature is the tooling and fixture design for the planned processes?</div><select data-cat="Manufacturing Engineering"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+      </div>
+
+      <div class="assess-cat">
+        <div class="assess-cat-head"><span class="assess-cat-num">03</span><span class="assess-cat-title">Production</span></div>
+        <div class="assess-q"><div class="assess-q-text">How ready is the physical layout and material flow for the planned production volume?</div><select data-cat="Production"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How well defined are production rates, staffing plans and shift structures?</div><select data-cat="Production"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How proven is the production process at the intended volume (pilot runs, trials)?</div><select data-cat="Production"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+      </div>
+
+      <div class="assess-cat">
+        <div class="assess-cat-head"><span class="assess-cat-num">04</span><span class="assess-cat-title">Quality</span></div>
+        <div class="assess-q"><div class="assess-q-text">How developed is the quality management system for this facility?</div><select data-cat="Quality"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How well defined are inspection, testing and acceptance criteria?</div><select data-cat="Quality"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How prepared is the facility for its target certification?</div><select data-cat="Quality"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+      </div>
+
+      <div class="assess-cat">
+        <div class="assess-cat-head"><span class="assess-cat-num">05</span><span class="assess-cat-title">Supply Chain</span></div>
+        <div class="assess-q"><div class="assess-q-text">How qualified and secured are the suppliers required for this facility?</div><select data-cat="Supply Chain"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How mature are incoming inspection and supplier quality controls?</div><select data-cat="Supply Chain"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How resilient is the supply chain to lead-time or single-source risk?</div><select data-cat="Supply Chain"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+      </div>
+
+      <div class="assess-cat">
+        <div class="assess-cat-head"><span class="assess-cat-num">06</span><span class="assess-cat-title">Equipment</span></div>
+        <div class="assess-q"><div class="assess-q-text">How complete is equipment procurement and installation for the planned processes?</div><select data-cat="Equipment"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How validated and qualified is the equipment for its intended use?</div><select data-cat="Equipment"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How mature are the maintenance and calibration programs for this equipment?</div><select data-cat="Equipment"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+      </div>
+
+      <div class="assess-cat">
+        <div class="assess-cat-head"><span class="assess-cat-num">07</span><span class="assess-cat-title">Workforce</span></div>
+        <div class="assess-q"><div class="assess-q-text">How adequately staffed is the facility for planned production?</div><select data-cat="Workforce"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How mature are training and competency programs for operators and technicians?</div><select data-cat="Workforce"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How clearly defined are organizational roles and responsibilities?</div><select data-cat="Workforce"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+      </div>
+
+      <div class="assess-cat">
+        <div class="assess-cat-head"><span class="assess-cat-num">08</span><span class="assess-cat-title">Certification</span></div>
+        <div class="assess-q"><div class="assess-q-text">How prepared is the facility's documentation for its target certification audit?</div><select data-cat="Certification"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How complete is the internal audit and management review cycle?</div><select data-cat="Certification"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+        <div class="assess-q"><div class="assess-q-text">How confident are you in achieving certification within the planned timeline?</div><select data-cat="Certification"><option value="">Select</option><option value="1">1 — Not in place</option><option value="2">2 — Informal / ad hoc</option><option value="3">3 — Partially defined</option><option value="4">4 — Defined and followed</option><option value="5">5 — Mature, continuously improved</option></select></div>
+      </div>
+
+
+      <div class="assess-submit-row">
+        <div class="assess-progress" id="assessProgress">0 of 24 answered</div>
+        <button type="submit" class="btn">Calculate My Score</button>
+      </div>
+    </form>
+
+    <div class="assess-results" id="assessResults">
+      <div class="assess-score-row">
+        <div>
+          <div class="assess-score-big" id="scoreOverall">0%</div>
+          <div class="assess-score-lab">Facility Readiness</div>
+          <div class="assess-band" id="scoreBand"></div>
+          <div class="assess-answered" id="scoreAnswered"></div>
+        </div>
+        <div class="assess-bars" id="scoreBars"></div>
+      </div>
+
+      <div class="assess-radar-wrap" id="radarWrap">
+        <div class="assess-radar-title">Readiness Profile</div>
+        <div id="radarChart"></div>
+      </div>
+
+      <div id="assessCallouts"></div>
+
+      <div class="assess-callout assess-recommendation" id="recommendationBox" style="display:none;">
+        <h4>CLB Recommendation</h4>
+        <p id="recommendationText"></p>
+      </div>
+
+      <div class="assess-callout assess-pathway" id="pathwayBox" style="display:none;">
+        <h4>Engagement Models to Consider</h4>
+        <p id="pathwayText"></p>
+        <a class="preview-link" href="engagement-models.html" style="display:inline-block; margin-top:8px;">View Engagement Models &rarr;</a>
+      </div>
+
+      <div class="assess-disclaimer">This preliminary self-assessment is intended as an initial indication of facility readiness. It does not constitute an audit, certification, feasibility study, or formal compliance assessment.</div>
+
+      <div class="assess-cta-row">
+        <a class="btn" href="#" id="downloadPdfBtn">Download Preliminary PDF Report</a>
+        <a class="btn ghost" href="contact.html">Discuss Your Results &rarr;</a>
+      </div>
+    </div>
+
+    
+  <div class="page-nav">
+    <a href="as9100d.html">&larr; AS9100D Check</a>
+    <a href="focus-areas.html" class="next">Focus Areas &rarr;</a>
+  </div>
+
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+  (function(){
+    const form = document.getElementById('assessForm');
+    const selects = () => Array.from(form.querySelectorAll('select[data-cat]'));
+    const progress = document.getElementById('assessProgress');
+
+    function updateProgress(){
+      const answered = selects().filter(s => s.value !== '').length;
+      progress.textContent = answered + ' of 24 answered';
+    }
+    selects().forEach(s => s.addEventListener('change', updateProgress));
+
+    const CATEGORY_ADVICE = {
+      Engineering: "Finalize engineering definition and tooling requirements before committing further capital \u2014 unresolved design details are the most expensive thing to discover mid-buildout.",
+      "Manufacturing Engineering": "Mature process routings, work instructions and tooling design \u2014 this is what actually turns an engineering definition into a repeatable, produced part.",
+      Production: "Validate layout, material flow and staffing plans against the intended production volume through pilot runs before committing to full rate.",
+      Quality: "Build out the quality management system and inspection/test criteria in parallel with production readiness, not after \u2014 retrofitting quality into a running line is expensive.",
+      "Supply Chain": "Qualify and secure critical suppliers early \u2014 supply chain readiness is one of the most common causes of facility ramp-up delay.",
+      Equipment: "Complete equipment validation, qualification and calibration programs \u2014 installed is not the same as qualified for production use.",
+      Workforce: "Formalize training, competency verification and organizational roles \u2014 equipment and process readiness mean little without a trained, accountable workforce.",
+      Certification: "Prioritize documentation completeness and the internal audit/management review cycle \u2014 this is what determines whether the facility is actually ready for its target certification audit."
+    };
+
+    const SCORE_BANDS = [
+      { min: 0,  label: "Early / Limited", cls: "low", msg: "The assessment indicates the facility is at an early planning stage, with fundamental readiness elements still to be established." },
+      { min: 40, label: "Developing",      cls: "low", msg: "The assessment indicates core facility elements are underway but require structure, consistency and stronger execution before production commitments are made." },
+      { min: 60, label: "Established",     cls: "mid", msg: "The assessment indicates a functional foundation for the facility, with identifiable areas requiring strengthening before ramp-up." },
+      { min: 75, label: "Strong",          cls: "",    msg: "The assessment indicates the facility is well-positioned for its next production stage, with targeted improvement opportunities." },
+      { min: 90, label: "Advanced",        cls: "",    msg: "The assessment indicates a mature, near-production-ready facility with opportunities for continuous improvement." }
+    ];
+    function getBand(score){
+      let band = SCORE_BANDS[0];
+      SCORE_BANDS.forEach(b => { if(score >= b.min) band = b; });
+      return band;
+    }
+
+    // Pattern-based diagnosis: reads combinations of strong/weak categories rather than
+    // just the single lowest score, so the recommendation reflects the shape of the
+    // results, not only its low point.
+    const PATTERN_INSIGHTS = [
+      { strong: "Engineering", weak: "Manufacturing Engineering", text: "Engineering is comparatively strong while Manufacturing Engineering lags \u2014 a pattern that usually means facility planning started before process routings and tooling were matured, risking schedule slip during ramp-up." },
+      { strong: "Equipment", weak: "Workforce", text: "Equipment readiness is comparatively strong while Workforce lags \u2014 physical capability alone doesn't guarantee output without trained operators and clearly defined organizational roles." },
+      { strong: "Production", weak: "Quality", text: "Production is comparatively strong while Quality lags \u2014 the facility can build product but lacks the controls to prove conformity, a critical exposure heading into certification." },
+      { strong: "Production", weak: "Supply Chain", text: "Production is comparatively strong while Supply Chain lags \u2014 the facility is ready to run, but supplier qualification is a common single point of failure for ramp-up schedules." },
+      { strong: "Quality", weak: "Certification", text: "Quality practices are comparatively strong while Certification lags \u2014 the gap between \u2018we work well\u2019 and \u2018we can prove it to an auditor\u2019 usually comes down to documentation and internal audit maturity." },
+      { strong: "Manufacturing Engineering", weak: "Equipment", text: "Manufacturing Engineering is comparatively strong while Equipment lags \u2014 processes are well defined on paper, but the physical equipment to execute them reliably isn't yet in place or qualified." }
+    ];
+    function findPattern(catScores){
+      for(const rule of PATTERN_INSIGHTS){
+        const s = catScores[rule.strong], w = catScores[rule.weak];
+        if(s !== null && s !== undefined && w !== null && w !== undefined && s >= 75 && w < 60){
+          return rule.text;
+        }
+      }
+      return null;
+    }
+
+    // Suggests an engagement model to consider based on the shape of the results \u2014
+    // framed as options to weigh, not a directive. Uses the same three models
+    // described on the Engagement Models page.
+    function suggestPathway(overall, gapsCount){
+      if(overall < 40 || gapsCount >= 3){
+        return {
+          name: "Direct Team Support (Embedded)",
+          text: "With this many areas below threshold, or an early-stage overall result, standing up this facility often benefits from direct, embedded support inside Engineering, Production or Quality \u2014 rather than periodic advice alone."
+        };
+      } else if(gapsCount >= 1){
+        return {
+          name: "Hands-On Delivery (Implementation)",
+          text: "The result points to a defined set of gaps rather than a broad weakness \u2014 well suited to hands-on development and deployment of the specific processes, tooling or systems needed to close them before ramp-up."
+        };
+      } else {
+        return {
+          name: "Independent Manufacturing Readiness Review (Advisory)",
+          text: "No area currently falls below the established threshold \u2014 an independent Manufacturing Readiness Review can help validate current practice and identify strategic next steps before committing further capital."
+        };
+      }
+    }
+
+    function drawRadar(catScores, categories){
+      const size = 320, cx = size/2, cy = size/2, r = 110;
+      const n = categories.length;
+      const angleFor = i => (Math.PI * 2 * i / n) - Math.PI/2;
+      function pointAt(i, val){
+        const a = angleFor(i);
+        const rad = r * (val/100);
+        return [cx + rad*Math.cos(a), cy + rad*Math.sin(a)];
+      }
+      let grid = '';
+      [0.25, 0.5, 0.75, 1].forEach(frac => {
+        let pts = [];
+        for(let i=0;i<n;i++){ pts.push(pointAt(i, frac*100).join(',')); }
+        grid += '<polygon points="' + pts.join(' ') + '" fill="none" stroke="#2A3444" stroke-width="1"/>';
+      });
+      let axes = '', labels = '';
+      categories.forEach((cat, i) => {
+        const a = angleFor(i);
+        const ex = cx + r*Math.cos(a), ey = cy + r*Math.sin(a);
+        axes += '<line x1="' + cx + '" y1="' + cy + '" x2="' + ex + '" y2="' + ey + '" stroke="#2A3444" stroke-width="1"/>';
+        const lx = cx + (r+26)*Math.cos(a), ly = cy + (r+26)*Math.sin(a);
+        labels += '<text x="' + lx + '" y="' + ly + '" fill="#8B95A3" font-size="10" font-family="IBM Plex Mono, monospace" text-anchor="middle" dominant-baseline="middle">' + cat + '</text>';
+      });
+      let dataPts = categories.map((cat,i) => pointAt(i, catScores[cat]).join(','));
+      const dataPoly = '<polygon points="' + dataPts.join(' ') + '" fill="#C9812E" fill-opacity="0.22" stroke="#C9812E" stroke-width="2"/>';
+      let dots = '';
+      categories.forEach((cat,i) => {
+        const p = pointAt(i, catScores[cat]);
+        dots += '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="3.5" fill="#C9812E"/>';
+      });
+      return '<svg width="' + size + '" height="' + (size+20) + '" viewBox="0 0 ' + size + ' ' + (size+20) + '">' + grid + axes + dataPoly + dots + labels + '</svg>';
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const answeredCount = selects().filter(s => s.value !== '').length;
+      if(answeredCount === 0){
+        alert('Please answer at least one question to see your results.');
+        return;
+      }
+
+      const cats = {};
+      selects().forEach(s => {
+        const cat = s.dataset.cat;
+        if(!cats[cat]) cats[cat] = [];
+        if(s.value !== ''){ cats[cat].push(parseInt(s.value, 10)); }
+      });
+
+      const catScores = {};
+      let sumPct = 0, catCount = 0;
+      Object.keys(cats).forEach(cat => {
+        const vals = cats[cat];
+        if(vals.length === 0){ catScores[cat] = null; return; }
+        const pct = Math.round((vals.reduce((a,b)=>a+b,0) / (vals.length*5)) * 100);
+        catScores[cat] = pct;
+        sumPct += pct;
+        catCount++;
+      });
+      const overall = catCount ? Math.round(sumPct / catCount) : 0;
+      const band = getBand(overall);
+
+      document.getElementById('scoreOverall').textContent = overall + '%';
+      const bandEl = document.getElementById('scoreBand');
+      bandEl.textContent = band.label.toUpperCase();
+      bandEl.className = 'assess-band assess-status-label' + (band.cls ? ' ' + band.cls : '');
+      document.getElementById('scoreAnswered').textContent = answeredCount + ' of 24 questions answered';
+
+      const barsEl = document.getElementById('scoreBars');
+      barsEl.innerHTML = '';
+      Object.keys(catScores).forEach(cat => {
+        const pct = catScores[cat];
+        if(pct === null){
+          barsEl.innerHTML += '<div class="assess-bar-row"><div class="assess-bar-label">' + cat + '</div><div class="assess-bar-track"></div><div class="assess-bar-pct" style="color:var(--muted);">\u2014</div></div>';
+        } else {
+          barsEl.innerHTML += '<div class="assess-bar-row"><div class="assess-bar-label">' + cat + '</div><div class="assess-bar-track"><div class="assess-bar-fill" style="width:' + pct + '%;"></div></div><div class="assess-bar-pct">' + pct + '%</div></div>';
+        }
+      });
+
+      const allCats = Object.keys(catScores);
+      const radarWrap = document.getElementById('radarWrap');
+      const complete = allCats.every(c => catScores[c] !== null);
+      if(complete){
+        document.getElementById('radarChart').innerHTML = drawRadar(catScores, allCats);
+        radarWrap.style.display = 'block';
+      } else {
+        document.getElementById('radarChart').innerHTML = '<div class="assess-radar-note">Radar chart available once every category has at least one answer.</div>';
+      }
+
+      const strengths = Object.keys(catScores).filter(c => catScores[c] !== null && catScores[c] >= 75);
+      const gaps = Object.keys(catScores).filter(c => catScores[c] !== null && catScores[c] < 60);
+      let calloutHtml = '';
+      if(strengths.length){
+        calloutHtml += '<div class="assess-callout"><h4>Strongest Areas</h4><p>' + strengths.join(', ') + ' \u2014 scoring 75% or above, a solid foundation to build on.</p></div>';
+      }
+      if(gaps.length){
+        const advice = gaps.map(g => CATEGORY_ADVICE[g]).join(' ');
+        calloutHtml += '<div class="assess-callout"><h4>Priority Areas for Improvement</h4><p>' + gaps.join(', ') + ' \u2014 scoring below 60%. ' + advice + '</p></div>';
+      }
+      if(!gaps.length && !strengths.length){
+        calloutHtml += '<div class="assess-callout"><h4>Balanced Profile</h4><p>No area scores in the critical range, and no area yet stands out as a clear strength \u2014 a good candidate for a structured review to prioritize next steps.</p></div>';
+      }
+      document.getElementById('assessCallouts').innerHTML = calloutHtml;
+
+      let recText = band.msg;
+      const pattern = findPattern(catScores);
+      if(pattern){
+        recText += ' ' + pattern;
+      } else if(gaps.length){
+        const topGap = gaps.reduce((worst, g) => (catScores[g] < catScores[worst] ? g : worst), gaps[0]);
+        recText += ' The primary opportunity is ' + topGap + '. ' + CATEGORY_ADVICE[topGap];
+      } else {
+        recText += ' No category currently falls below the established threshold \u2014 a structured review would help identify the next level of improvement.';
+      }
+      document.getElementById('recommendationText').textContent = recText;
+      document.getElementById('recommendationBox').style.display = 'block';
+
+      const pathway = suggestPathway(overall, gaps.length);
+      document.getElementById('pathwayText').textContent = pathway.name + ' \u2014 ' + pathway.text;
+      document.getElementById('pathwayBox').style.display = 'block';
+
+      document.getElementById('assessResults').classList.add('show');
+      document.getElementById('assessResults').scrollIntoView({behavior:'smooth'});
+
+      const ctxParts = [];
+      const ctxType = document.getElementById('ctxFacilityType').value;
+      const ctxStage = document.getElementById('ctxProductionStage').value;
+      const ctxCert = document.getElementById('ctxCertification').value;
+      if(ctxType) ctxParts.push(ctxType);
+      if(ctxStage) ctxParts.push(ctxStage);
+      if(ctxCert) ctxParts.push('Target: ' + ctxCert);
+      const ctxLine = ctxParts.join('  \u00b7  ');
+
+      window._assessData = { overall: overall, catScores: catScores, gaps: gaps, strengths: strengths, answeredCount: answeredCount, band: band, recommendation: recText, pathway: pathway, context: ctxLine };
+    });
+
+    function buildPdf(logoDataUrl){
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      const data = window._assessData;
+      const NAVY = [15, 19, 26];
+      const PANEL = [21, 27, 36];
+      const AMBER = [201, 129, 46];
+      const TEAL = [76, 133, 119];
+      const MUTED = [110, 118, 130];
+      const pageW = doc.internal.pageSize.getWidth();
+      const pageH = doc.internal.pageSize.getHeight();
+      const BOTTOM_MARGIN = 26;
+      const TOP_MARGIN = 22;
+
+      function checkPageBreak(neededHeight){
+        if(y + neededHeight > pageH - BOTTOM_MARGIN){
+          doc.addPage();
+          y = TOP_MARGIN;
+        }
+      }
+
+      // header band
+      doc.setFillColor(...NAVY);
+      doc.rect(0, 0, pageW, 38, 'F');
+      if(logoDataUrl){
+        try{ doc.addImage(logoDataUrl, 'PNG', 16, 8, 22, 22*(97/120)); }catch(e){}
+      }
+      doc.setTextColor(233, 234, 228);
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(16);
+      doc.text('Facility Readiness Planner', 46, 16);
+      doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5);
+      doc.setTextColor(201, 129, 46);
+      doc.text('PRELIMINARY SELF-ASSESSMENT', 46, 22.5);
+      doc.setTextColor(160, 168, 180);
+      doc.text('Prepared by Cristian La Bella  \u2014  cristianlabella.com', 46, 29);
+
+      let y = 56;
+
+      // overall score
+      doc.setTextColor(...AMBER);
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(34);
+      doc.text(data.overall + '%', 16, y);
+      doc.setTextColor(...MUTED);
+      doc.setFont('helvetica', 'normal'); doc.setFontSize(10);
+      doc.text('FACILITY READINESS  \u2014  ' + data.band.label.toUpperCase(), 16, y + 7);
+      doc.setFontSize(8.5);
+      doc.text(data.answeredCount + ' of 24 questions answered', 16, y + 13);
+      if(data.context){
+        doc.setFontSize(8.5);
+        doc.setTextColor(...AMBER);
+        doc.text(data.context, 16, y + 19);
+        doc.setTextColor(...MUTED);
+      }
+
+      y += 32;
+      doc.setDrawColor(220,220,220);
+      doc.line(16, y, pageW-16, y);
+      y += 14;
+
+      // category bars
+      doc.setTextColor(30,30,30);
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(11.5);
+      doc.text('Readiness Area Breakdown', 16, y);
+      y += 10;
+
+      const barX = 70, barW = 100, barH = 5;
+      Object.keys(data.catScores).forEach(cat => {
+        checkPageBreak(12);
+        const pct = data.catScores[cat];
+        doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5);
+        doc.setTextColor(60,60,60);
+        doc.text(cat, 16, y + 4);
+        if(pct === null){
+          doc.setFont('helvetica', 'italic'); doc.setFontSize(8.5);
+          doc.setTextColor(150,150,150);
+          doc.text('Not answered', barX, y + 4);
+        } else {
+          doc.setFillColor(235,235,232);
+          doc.rect(barX, y, barW, barH, 'F');
+          doc.setFillColor(...(pct >= 75 ? TEAL : (pct < 60 ? [180,70,60] : AMBER)));
+          doc.rect(barX, y, barW * (pct/100), barH, 'F');
+          doc.setFont('helvetica', 'bold'); doc.setFontSize(9.5);
+          doc.setTextColor(40,40,40);
+          doc.text(pct + '%', barX + barW + 6, y + 4);
+        }
+        y += 12;
+      });
+
+      y += 8;
+
+      function calloutBox(title, text, color){
+        const lines = doc.splitTextToSize(text, pageW - 44);
+        const boxH = 16 + lines.length * 5.5;
+        checkPageBreak(boxH);
+        doc.setFillColor(247, 247, 245);
+        doc.setDrawColor(...color);
+        doc.setLineWidth(0.6);
+        doc.rect(16, y, pageW - 32, boxH, 'FD');
+        doc.setFont('helvetica', 'bold'); doc.setFontSize(10.5);
+        doc.setTextColor(...color);
+        doc.text(title, 22, y + 9);
+        doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5);
+        doc.setTextColor(50,50,50);
+        doc.text(lines, 22, y + 16);
+        y += boxH + 8;
+      }
+
+      if(data.strengths.length){
+        calloutBox('STRONGEST AREAS', data.strengths.join(', ') + ' \u2014 scoring 75% or above, a solid foundation to build on.', TEAL);
+      }
+      if(data.gaps.length){
+        calloutBox('PRIORITY AREAS FOR IMPROVEMENT', data.gaps.join(', ') + ' \u2014 scoring below 60%, worth addressing first.', [180,70,60]);
+      }
+      if(!data.strengths.length && !data.gaps.length){
+        calloutBox('BALANCED PROFILE', 'No area scores in the critical range, and no area yet stands out as a clear strength.', AMBER);
+      }
+
+      calloutBox('CLB RECOMMENDATION', data.recommendation, AMBER);
+      calloutBox('ENGAGEMENT MODELS TO CONSIDER', data.pathway.name + ' \u2014 ' + data.pathway.text, TEAL);
+
+      y += 4;
+      checkPageBreak(30);
+      doc.setFillColor(...PANEL);
+      doc.rect(16, y, pageW - 32, 26, 'F');
+      doc.setTextColor(233, 234, 228);
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(10.5);
+      doc.text('NEXT STEP', 22, y + 9);
+      doc.setFont('helvetica', 'normal'); doc.setFontSize(9);
+      doc.setTextColor(200, 204, 212);
+      doc.text(doc.splitTextToSize('Book a short consultation at cristianlabella.com/contact.html to review these results and build a prioritized plan for bringing this facility to production readiness.', pageW - 44), 22, y + 16);
+
+      y += 34;
+      const discLines = doc.splitTextToSize('This preliminary self-assessment is intended as an initial indication of facility readiness. It does not constitute an audit, certification, feasibility study, or formal compliance assessment.', pageW - 32);
+      checkPageBreak(discLines.length * 4);
+      doc.setFont('helvetica', 'italic'); doc.setFontSize(7.5);
+      doc.setTextColor(...MUTED);
+      doc.text(discLines, 16, y);
+
+      // footer on every page
+      const totalPages = doc.internal.getNumberOfPages();
+      for(let p = 1; p <= totalPages; p++){
+        doc.setPage(p);
+        doc.setDrawColor(230,230,230);
+        doc.line(16, pageH - 16, pageW - 16, pageH - 16);
+        doc.setFont('helvetica', 'normal'); doc.setFontSize(8);
+        doc.setTextColor(...MUTED);
+        doc.text('cristianlabella.com  \u00b7  cris@cristianlabella.com', 16, pageH - 10);
+      }
+
+      doc.save('facility-readiness-report.pdf');
+    }
+
+    document.getElementById('downloadPdfBtn').addEventListener('click', function(e){
+      e.preventDefault();
+      if(!window._assessData){ return; }
+
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = function(){
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width; canvas.height = img.height;
+        canvas.getContext('2d').drawImage(img, 0, 0);
+        let dataUrl = null;
+        try{ dataUrl = canvas.toDataURL('image/png'); }catch(err){ dataUrl = null; }
+        buildPdf(dataUrl);
+      };
+      img.onerror = function(){ buildPdf(null); };
+      img.src = 'images/nav-logo.png';
+    });
+  })();
+  </script>
+
+</main>
+
+<footer class="wrap">
+  <div class="footer-top">
+    <div>© 2026 Cristian La Bella Consulting. All rights reserved.</div>
+    <div>Built &amp; maintained on GitHub Pages</div>
+  </div>
+  <div class="footer-disclaimer">
+    Information on this website is for general professional and informational purposes and does not constitute legal, regulatory, engineering certification, or guaranteed compliance advice. Project outcomes depend on the specific technical, contractual, regulatory and organizational circumstances of each engagement. All trademarks, standards and third-party names remain the property of their respective owners.
+  </div>
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  items.forEach(el=>io.observe(el));
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if(navToggle && navLinks){
+    navToggle.addEventListener('click', ()=>{
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', open);
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  document.querySelectorAll('.nav-drop-trigger').forEach(function(trigger){
+    const menu = trigger.nextElementSibling;
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      const isOpen = !menu.classList.contains('open');
+      menu.classList.toggle('open', isOpen);
+      trigger.classList.toggle('open', isOpen);
+      menu.style.display = isOpen ? 'flex' : 'none';
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        trigger.classList.remove('open');
+        menu.style.display = 'none';
+      });
+    });
+  });
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.nav-drop-menu.open').forEach(function(menu){
+      const trigger = menu.previousElementSibling;
+      if(!menu.contains(e.target) && !trigger.contains(e.target)){
+        menu.classList.remove('open');
+        trigger.classList.remove('open');
+        menu.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "39eeb69f9bc246d49f4374257ca1c4e7"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
