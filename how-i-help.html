@@ -140,6 +140,14 @@
     trigger.addEventListener('click', function(e){
       e.stopPropagation();
       const isOpen = !menu.classList.contains('open');
+      document.querySelectorAll('.nav-drop-menu.open').forEach(function(otherMenu){
+        if(otherMenu !== menu){
+          otherMenu.classList.remove('open');
+          otherMenu.style.display = 'none';
+          const otherTrigger = otherMenu.previousElementSibling;
+          if(otherTrigger){ otherTrigger.classList.remove('open'); }
+        }
+      });
       menu.classList.toggle('open', isOpen);
       trigger.classList.toggle('open', isOpen);
       menu.style.display = isOpen ? 'flex' : 'none';
