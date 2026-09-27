@@ -129,6 +129,7 @@ section{ padding:84px 0; border-top:1px solid var(--line); }
 
 .field-strip{ margin-top:40px; display:flex; flex-wrap:wrap; gap:10px; }
 .field-strip span{ font-family:'IBM Plex Mono',monospace; font-size:11px; padding:8px 14px; border:1px solid var(--line); color:var(--muted); }
+.field-strip span.arrow{ border:none; padding:8px 0; color:var(--accent); }
 
 /* SELECTED PROGRAMS */
 .prog-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line);}
