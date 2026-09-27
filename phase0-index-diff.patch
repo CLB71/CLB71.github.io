@@ -1,0 +1,88 @@
+diff --git a/index.html b/index.html
+index d07c696..1d3cb9c 100644
+--- a/index.html
++++ b/index.html
+@@ -55,14 +55,16 @@
+     </div>
+ 
+     <div class="eyebrow" style="margin-bottom:18px;">Aerospace &amp; Defense Manufacturing — Engineering, Operations &amp; Quality</div>
+-    <h1>Engineering, industrialization, production and quality — <em>from concept through certified production</em>.</h1>
+-    <p class="lede">I help aerospace and defense manufacturers turn engineering requirements into production-ready manufacturing systems — built on 20+ years of hands-on experience establishing, industrializing and operating aerospace manufacturing environments, not just advising on them. From industrialization and process development through production ramp-up, AS9100D quality systems and operational readiness.</p>
++    <h1>I help aerospace and defense companies turn <em>engineering capability</em> into <em>production capability</em>.</h1>
++    <p class="lede">Built on 20+ years of hands-on experience establishing, industrializing and operating aerospace manufacturing environments — not just advising on them. Assess &rarr; Industrialize &rarr; Implement &rarr; Qualify &rarr; Ramp: engineering requirements through AS9100D quality systems, production ramp-up and certified output.</p>
+ 
+     <div class="hero-actions">
+       <a class="btn" href="contact.html">Discuss a Manufacturing Program</a>
+       <a class="btn ghost" href="focus-areas.html">See what I do</a>
+     </div>
+ 
++    <p style="margin-top:22px; font-size:12.5px; color:var(--muted); max-width:600px;">Client identities, program details and proprietary information are held in confidence — public examples are presented at a non-confidential level.</p>
++
+     <div class="cred-strip">
+       <div class="cred">ISO 9001 / 14001 / 45001 AUDITOR</div>
+       <div class="cred">SIX SIGMA GREEN BELT</div>
+@@ -84,6 +86,64 @@
+     </div>
+   </section>
+ 
++  <!-- WHY COMPANIES BRING ME IN -->
++  <section class="reveal">
++    <div class="sec-head">
++      <div class="sec-title">Why Companies Bring Me In</div>
++      <p class="sec-sub">Four things that separate this practice from a generic engineering consultancy.</p>
++    </div>
++    <div class="svc-list">
++      <div class="svc">
++        <div class="tag">Hands-On</div>
++        <h3>Not a slide-deck advisor</h3>
++        <p>Direct, working involvement in engineering, industrialization and production — the same floor, the same schedule pressure, the same audits.</p>
++      </div>
++      <div class="svc">
++        <div class="tag">Industrial</div>
++        <h3>Production-system thinking</h3>
++        <p>Built for repeatability and control, not a one-off fix — process, equipment, workforce and quality system treated as one connected system.</p>
++      </div>
++      <div class="svc">
++        <div class="tag">Aerospace</div>
++        <h3>Domain-specific, not generic</h3>
++        <p>AS9100D, NADCAP-adjacent special processes, traceability and configuration control — the constraints that don't show up in a general manufacturing playbook.</p>
++      </div>
++      <div class="svc">
++        <div class="tag">Implementation-Oriented</div>
++        <h3>Stays through the hard part</h3>
++        <p>Engaged through qualification and ramp-up, not just the assessment — the phase where most programs actually stall.</p>
++      </div>
++    </div>
++  </section>
++
++  <!-- WHO I WORK WITH -->
++  <section class="reveal">
++    <div class="sec-head">
++      <div class="sec-title">Who I Work With</div>
++      <p class="sec-sub">Organizations facing engineering-to-production, audit-readiness, or facility-standup challenges.</p>
++    </div>
++    <div class="field-strip">
++      <span>Aerospace OEMs</span>
++      <span>Tier 1 / Tier 2 Suppliers</span>
++      <span>New Aerospace Entrants</span>
++      <span>Defense Manufacturers</span>
++      <span>Investors / Industrial Groups</span>
++      <span>Government &amp; Economic-Development Programs</span>
++    </div>
++  </section>
++
++  <!-- MANUFACTURING GAP SIGNATURE BLOCK -->
++  <section class="reveal">
++    <div class="quote-block">
++      <div class="quote-inner">
++        <div class="quote-mark">&ldquo;</div>
++        <div class="quote-text">Many aerospace companies can design the product. The difficult part is turning that design into a repeatable, qualified and production-ready manufacturing system.</div>
++        <div class="quote-rule"></div>
++        <div class="quote-closing">That is where I work.</div>
++      </div>
++    </div>
++  </section>
++
+   <!-- OVERVIEW / PREVIEW GRID -->
+   <section class="reveal">
+     <div class="sec-head">
