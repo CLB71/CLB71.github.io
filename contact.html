@@ -88,6 +88,29 @@
         </div>
       </div>
     </div>
+
+    <div class="cform">
+      <h2>Request a Confidential Consultation</h2>
+      <p class="cf-sub">Tell me briefly what you are working on. I will reply personally, normally within a few business days.</p>
+      <form id="contactForm" novalidate>
+        <input type="hidden" name="access_key" value="b9766c64-0a10-4942-902c-fc0219986202">
+        <input type="hidden" name="subject" value="New enquiry from cristianlabella.com">
+        <input type="hidden" name="from_name" value="Website contact form">
+        <input type="checkbox" name="botcheck" class="cf-hp" tabindex="-1" autocomplete="off">
+        <div class="cf-grid">
+          <div class="cf-field"><label for="cf-name">Name *</label><input id="cf-name" name="name" type="text" required autocomplete="name"></div>
+          <div class="cf-field"><label for="cf-email">Email *</label><input id="cf-email" name="email" type="email" required autocomplete="email"></div>
+          <div class="cf-field"><label for="cf-company">Company</label><input id="cf-company" name="company" type="text" autocomplete="organization"></div>
+          <div class="cf-field"><label for="cf-country">Country</label><input id="cf-country" name="country" type="text" autocomplete="country-name"></div>
+          <div class="cf-field full"><label for="cf-msg">What do you need help with? *</label><textarea id="cf-msg" name="message" required></textarea></div>
+        </div>
+        <div class="cf-actions">
+          <button type="submit" class="btn" id="cfBtn">Send Request</button>
+          <span class="cf-status" id="cfStatus" role="status" aria-live="polite"></span>
+        </div>
+        <p class="cf-note">Discussed in confidence. For this first message, please describe your situation in general terms &mdash; do not include proprietary, export-controlled or otherwise sensitive technical data. Prefer email? Write to <a href="mailto:cris@cristianlabella.com" style="color:var(--accent);">cris@cristianlabella.com</a>.</p>
+      </form>
+    </div>
     
   <div class="page-nav">
     <a href="engagement-models.html">&larr; Engagement</a>
@@ -114,6 +137,31 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   items.forEach(el=>io.observe(el));
+</script>
+<script>
+(function(){
+  var f=document.getElementById('contactForm'); if(!f) return;
+  var btn=document.getElementById('cfBtn'), st=document.getElementById('cfStatus');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    st.className='cf-status'; st.textContent='';
+    if(!f.name.value.trim()||!f.email.value.trim()||!f.message.value.trim()||!f.email.checkValidity()){
+      st.className='cf-status err'; st.textContent='Please complete name, a valid email and your message.'; return;
+    }
+    btn.disabled=true; btn.textContent='Sending...';
+    var data={}; new FormData(f).forEach(function(v,k){ data[k]=v; });
+    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        if(j.success){ f.reset(); st.className='cf-status ok'; st.textContent='Thank you \u2014 your message has been sent. I will reply personally.'; btn.textContent='Sent'; }
+        else { throw new Error(j.message||'failed'); }
+      })
+      .catch(function(){
+        st.className='cf-status err'; st.textContent='Could not send. Please email cris@cristianlabella.com directly.';
+        btn.disabled=false; btn.textContent='Send Request';
+      });
+  });
+})();
 </script>
 <script src="nav.js"></script>
 

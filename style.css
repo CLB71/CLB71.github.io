@@ -319,3 +319,28 @@ footer{ border-top:1px solid var(--line); padding:30px 0; }
 /* ASSESSMENT — engagement pathway callout */
 .assess-pathway{ border-color:var(--teal); }
 .assess-pathway h4{ color:var(--teal); }
+
+/* Contact form */
+.cform{ margin-top:28px; border:1px solid var(--line); background:var(--panel); padding:40px; }
+@media (max-width:760px){ .cform{ padding:26px 20px; } }
+.cform h2{ font-family:'Archivo',sans-serif; font-weight:800; font-size:clamp(20px,2.6vw,27px); margin-bottom:8px; }
+.cform .cf-sub{ color:#C7CCD4; font-size:15px; margin-bottom:24px; }
+.cf-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+@media (max-width:760px){ .cf-grid{ grid-template-columns:1fr; } }
+.cf-field{ display:flex; flex-direction:column; gap:6px; }
+.cf-field.full{ grid-column:1 / -1; }
+.cf-field label{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); }
+.cf-field input, .cf-field textarea{
+  font-family:'IBM Plex Sans',sans-serif; font-size:15px; color:var(--paper);
+  background:var(--ink); border:1px solid var(--line); padding:12px 14px; border-radius:0; width:100%;
+}
+.cf-field input:focus, .cf-field textarea:focus{ outline:none; border-color:var(--accent); }
+.cf-field textarea{ min-height:130px; resize:vertical; }
+.cf-hp{ position:absolute; left:-9999px; opacity:0; height:0; width:0; }
+.cf-actions{ margin-top:20px; display:flex; flex-wrap:wrap; align-items:center; gap:16px; }
+.cf-actions button.btn{ cursor:pointer; }
+.cf-actions button.btn:disabled{ opacity:.6; cursor:wait; }
+.cf-note{ color:var(--muted); font-size:13px; margin-top:16px; }
+.cf-status{ font-size:14.5px; }
+.cf-status.ok{ color:var(--teal); }
+.cf-status.err{ color:#D9776B; }
